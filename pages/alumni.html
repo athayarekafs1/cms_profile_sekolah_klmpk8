@@ -2,607 +2,273 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Alumni - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: #f5f7fb; }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background: #f5f7fb;
-        }
-
-        /* ==================== SIDEBAR STANDAR ==================== */
         .sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            width: 280px;
-            height: 100%;
+            position: fixed; left: 0; top: 0; width: 280px; height: 100%;
             background: linear-gradient(180deg, #1a2a4f 0%, #0f1a2e 100%);
-            color: white;
-            transition: all 0.3s;
-            z-index: 1000;
-            overflow-y: auto;
+            color: white; transition: all 0.3s; z-index: 1000; overflow-y: auto;
         }
-
-        .sidebar-header {
-            padding: 28px 24px;
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
+        .sidebar-header { padding: 28px 24px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
         .logo-icon-small {
-            width: 55px;
-            height: 55px;
+            width: 55px; height: 55px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 12px;
+            border-radius: 16px; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px;
         }
-
-        .sidebar-header h2 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-top: 8px;
-        }
-
-        .sidebar-header p {
-            font-size: 11px;
-            opacity: 0.7;
-            margin-top: 4px;
-        }
-
-        .nav-menu {
-            padding: 20px 0;
-        }
-
+        .sidebar-header h2 { font-size: 18px; font-weight: 600; margin-top: 8px; }
+        .sidebar-header p { font-size: 11px; opacity: 0.7; margin-top: 4px; }
+        .nav-menu { padding: 20px 0; }
         .nav-item {
-            padding: 12px 24px;
-            margin: 4px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: all 0.3s;
-            color: rgba(255,255,255,0.8);
+            padding: 12px 24px; margin: 4px 16px; border-radius: 12px;
+            cursor: pointer; display: flex; align-items: center; gap: 12px;
+            transition: all 0.3s; color: rgba(255,255,255,0.8);
         }
-
-        .nav-item:hover {
-            background: rgba(102, 126, 234, 0.2);
-            color: white;
-        }
-
-        .nav-item.active {
-            background: rgba(102, 126, 234, 0.3);
-            color: white;
-        }
-
-        .nav-item i {
-            width: 22px;
-            font-size: 16px;
-        }
-
-        .nav-item span {
-            font-size: 14px;
-            font-weight: 500;
-        }
-
+        .nav-item:hover { background: rgba(102, 126, 234, 0.2); color: white; }
+        .nav-item.active { background: rgba(102, 126, 234, 0.3); color: white; }
+        .nav-item i { width: 22px; font-size: 16px; }
+        .nav-item span { font-size: 14px; font-weight: 500; }
         .menu-toggle {
-            display: none;
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 1001;
-            background: #1a2a4f;
-            color: white;
-            border: none;
-            padding: 12px;
-            border-radius: 12px;
-            cursor: pointer;
+            display: none; position: fixed; top: 20px; left: 20px; z-index: 1001;
+            background: #1a2a4f; color: white; border: none; padding: 14px 16px;
+            border-radius: 12px; cursor: pointer; font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 1024px) {
-            .sidebar {
-                left: -280px;
-            }
-            .sidebar.active {
-                left: 0;
-            }
-            .main-content {
-                margin-left: 0;
-                padding: 20px;
-            }
-            .menu-toggle {
-                display: block;
-            }
-        }
-        /* ==================== END SIDEBAR ==================== */
-
-        /* Main Content */
-        .main-content {
-            margin-left: 280px;
-            padding: 24px 32px;
-            transition: all 0.3s;
+            .sidebar { left: -280px; }
+            .sidebar.active { left: 0; box-shadow: 4px 0 30px rgba(0,0,0,0.3); }
+            .main-content { margin-left: 0; padding: 16px; }
+            .menu-toggle { display: block; }
         }
 
-        /* Topbar */
+        .main-content { margin-left: 280px; padding: 24px 32px; transition: all 0.3s; }
+
         .topbar {
-            background: white;
-            border-radius: 20px;
-            padding: 16px 24px;
-            margin-bottom: 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 16px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            background: white; border-radius: 20px; padding: 20px 28px; margin-bottom: 28px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-
-        .page-title h1 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a2a4f;
-        }
-
-        .page-title p {
-            font-size: 13px;
-            color: #6c757d;
-            margin-top: 4px;
-        }
+        .page-title h1 { font-size: 26px; font-weight: 700; color: #1a2a4f; }
+        .page-title p { font-size: 14px; color: #6c757d; margin-top: 6px; }
 
         .btn-add {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s;
+            color: white; border: none; padding: 12px 24px; border-radius: 12px;
+            cursor: pointer; font-weight: 600; font-size: 14px;
+            display: flex; align-items: center; gap: 8px; transition: all 0.3s;
+            box-shadow: 0 2px 6px rgba(102,126,234,0.3);
         }
+        .btn-add:hover { transform: translateY(-2px); box-shadow: 0 6px 14px rgba(102,126,234,0.4); }
 
-        .btn-add:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(102,126,234,0.3);
-        }
-
-        /* Stats Cards - Lebih Kecil */
         .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px; margin-bottom: 28px;
         }
-
         .stat-card {
-            background: white;
-            border-radius: 16px;
-            padding: 14px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-            transition: all 0.3s;
-            border: 1px solid #f0f2f5;
+            background: white; border-radius: 20px; padding: 20px;
+            display: flex; align-items: center; gap: 16px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04); transition: all 0.3s; border: 1px solid #f0f2f5;
         }
+        .stat-card:hover { transform: translateY(-3px); box-shadow: 0 12px 20px -8px rgba(0,0,0,0.1); }
+        .stat-icon { width: 52px; height: 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center; }
+        .stat-info h3 { font-size: 28px; font-weight: 700; color: #1a2a4f; }
+        .stat-info p { font-size: 13px; color: #6c757d; margin-top: 4px; }
 
-        .stat-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .stat-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .stat-info h3 {
-            font-size: 22px;
-            font-weight: 700;
-            color: #1a2a4f;
-        }
-
-        .stat-info p {
-            font-size: 11px;
-            color: #6c757d;
-            margin-top: 2px;
-        }
-
-        /* Filter Section - Lebih Rapat */
         .filter-section {
-            background: white;
-            border-radius: 14px;
-            padding: 12px 16px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
+            background: white; border-radius: 16px; padding: 16px 20px; margin-bottom: 24px;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.04);
         }
-
-        .filter-group {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
+        .filter-group { display: flex; gap: 12px; flex-wrap: wrap; }
         .filter-select, .search-input {
-            padding: 8px 14px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
-            background: white;
-            cursor: pointer;
-        }
-
-        .search-input {
-            width: 220px;
-        }
-
-        /* Alumni Grid - BANYAK KOLOM (6 kolom di desktop) */
-        .alumni-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 16px;
-        }
-
-        /* Desktop besar - 6 kolom */
-        @media (min-width: 1600px) {
-            .alumni-grid {
-                grid-template-columns: repeat(6, 1fr);
-            }
-        }
-
-        /* Desktop sedang - 5 kolom */
-        @media (min-width: 1300px) and (max-width: 1599px) {
-            .alumni-grid {
-                grid-template-columns: repeat(5, 1fr);
-            }
-        }
-
-        /* Desktop kecil - 4 kolom */
-        @media (min-width: 1000px) and (max-width: 1299px) {
-            .alumni-grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-        }
-
-        /* Tablet - 3 kolom */
-        @media (min-width: 700px) and (max-width: 999px) {
-            .alumni-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* Mobile - 2 kolom */
-        @media (min-width: 450px) and (max-width: 699px) {
-            .alumni-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        /* Mobile kecil - 1 kolom */
-        @media (max-width: 449px) {
-            .alumni-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Alumni Card - LEBIH KECIL */
-        .alumni-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            transition: all 0.3s;
-            border: 1px solid #f0f2f5;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .alumni-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px -8px rgba(0,0,0,0.12);
-        }
-
-        /* Header Card - Lebih kecil */
-        .alumni-header {
-            position: relative;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 16px 12px 40px 12px;
-            text-align: center;
-        }
-
-        .alumni-avatar {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto;
-            border: 3px solid white;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            color: #667eea;
-        }
-
-        .alumni-name {
-            font-size: 14px;
-            font-weight: 700;
-            margin-top: 10px;
-            color: white;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .alumni-year-badge {
-            position: absolute;
-            bottom: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            padding: 3px 10px;
-            border-radius: 30px;
-            font-size: 10px;
-            font-weight: 600;
-            color: #667eea;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            white-space: nowrap;
-        }
-
-        /* Body Card - Lebih kecil */
-        .alumni-body {
-            padding: 14px 12px 12px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .alumni-info-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-            font-size: 11px;
-            color: #475569;
-        }
-
-        .alumni-info-item i {
-            width: 14px;
-            font-size: 11px;
-            color: #667eea;
-        }
-
-        .alumni-level-badge {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 10px;
-            font-weight: 600;
-            background: #e0e7ff;
-            color: #4338ca;
-        }
-
-        /* Testimoni - Lebih kecil */
-        .alumni-testimoni {
-            background: #f8fafc;
-            padding: 8px 10px;
-            border-radius: 10px;
-            margin: 10px 0;
-            font-size: 11px;
-            color: #475569;
-            line-height: 1.4;
-            font-style: italic;
-            position: relative;
-            max-height: 60px;
-            overflow: hidden;
-        }
-
-        .alumni-testimoni::before {
-            content: '"';
-            font-size: 20px;
-            color: #667eea;
-            opacity: 0.3;
-            position: absolute;
-            top: 2px;
-            left: 6px;
-        }
-
-        /* Actions - Lebih kecil */
-        .alumni-actions {
-            display: flex;
-            gap: 6px;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #f1f5f9;
-        }
-
-        .action-btn {
-            padding: 4px 8px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 10px;
-            font-weight: 500;
+            padding: 10px 16px; border: 1.5px solid #e2e8f0; border-radius: 12px;
+            font-family: 'Inter', sans-serif; font-size: 14px; background: white; cursor: pointer;
             transition: all 0.2s;
-            flex: 1;
+        }
+        .filter-select:focus, .search-input:focus {
+            outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+        }
+        .search-input { width: 260px; }
+
+        .alumni-grid {
+            display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+        }
+        @media (max-width: 1200px) { .alumni-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .alumni-grid { grid-template-columns: 1fr; gap: 16px; } }
+
+        .alumni-card {
+            background: white; border-radius: 20px; overflow: hidden;
+            transition: all 0.3s; border: 1px solid #f0f2f5; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            display: flex; flex-direction: column;
+        }
+        .alumni-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15); }
+
+        .alumni-header {
+            position: relative; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 16px 12px 40px 12px; text-align: center;
+        }
+        .alumni-avatar {
+            width: 80px; height: 80px; border-radius: 50%; object-fit: cover;
+            margin: 0 auto; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: white; display: flex; align-items: center; justify-content: center; font-size: 36px; color: #667eea;
+        }
+        .alumni-name { font-size: 16px; font-weight: 700; margin-top: 10px; color: white; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .alumni-year-badge {
+            position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+            background: white; padding: 4px 12px; border-radius: 30px;
+            font-size: 10px; font-weight: 600; color: #667eea; box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
+        .alumni-body { padding: 16px; flex: 1; display: flex; flex-direction: column; }
+        .alumni-info-item {
+            display: flex; align-items: center; gap: 8px; margin-bottom: 8px;
+            font-size: 13px; color: #475569;
+        }
+        .alumni-info-item i { width: 16px; font-size: 13px; color: #667eea; }
+        .alumni-level-badge {
+            display: inline-block; padding: 2px 10px; border-radius: 20px;
+            font-size: 10px; font-weight: 600; background: #e0e7ff; color: #4338ca;
+        }
+        .alumni-testimoni {
+            background: #f8fafc; padding: 10px 12px; border-radius: 10px;
+            margin: 10px 0; font-size: 12px; color: #475569; line-height: 1.5;
+            font-style: italic; position: relative; max-height: 60px; overflow: hidden; flex: 1;
+        }
+        .alumni-testimoni::before {
+            content: '"'; font-size: 24px; color: #667eea; opacity: 0.3;
+            position: absolute; top: 2px; left: 6px;
+        }
+        .alumni-actions {
+            display: flex; gap: 8px; margin-top: 10px; padding-top: 12px; border-top: 1px solid #f1f5f9;
+        }
+        .action-btn {
+            padding: 6px 12px; border: none; border-radius: 8px; cursor: pointer;
+            font-size: 12px; font-weight: 500; transition: all 0.2s; flex: 1; text-align: center;
+        }
         .btn-view { background: #e0e7ff; color: #4338ca; }
         .btn-view:hover { background: #c7d2fe; }
-
         .btn-edit { background: #fef3c7; color: #92400e; }
         .btn-edit:hover { background: #fde68a; }
-
         .btn-delete { background: #fee2e2; color: #b91c1c; }
         .btn-delete:hover { background: #fecaca; }
 
-        /* Modal */
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(4px);
-            z-index: 2000;
-            align-items: center;
-            justify-content: center;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 2000;
+            align-items: center; justify-content: center;
         }
-
         .modal-content {
-            background: white;
-            border-radius: 24px;
-            padding: 28px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 85vh;
-            overflow-y: auto;
+            background: white; border-radius: 28px; padding: 32px;
+            max-width: 500px; width: 90%; max-height: 85vh; overflow-y: auto;
             animation: modalFadeIn 0.3s ease;
         }
+        @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+        .modal-header h2 { font-size: 22px; font-weight: 700; color: #1a2a4f; }
+        .modal-close { background: none; border: none; font-size: 28px; cursor: pointer; color: #94a3b8; }
 
-        @keyframes modalFadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .modal-header h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: #1a2a4f;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 24px;
-            cursor: pointer;
-            color: #94a3b8;
-        }
-
-        .form-group {
-            margin-bottom: 16px;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            font-size: 12px;
-            margin-bottom: 5px;
-            color: #334155;
-        }
-
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; font-weight: 600; font-size: 13px; margin-bottom: 6px; color: #334155; }
         .form-group input, .form-group select, .form-group textarea {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1.5px solid #e2e8f0;
-            border-radius: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 13px;
+            width: 100%; padding: 12px 14px; border: 1.5px solid #e2e8f0;
+            border-radius: 12px; font-family: 'Inter', sans-serif; font-size: 14px;
+            transition: all 0.2s;
         }
-
-        .form-group textarea {
-            min-height: 80px;
-            resize: vertical;
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
         }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
-        }
-
+        .form-group textarea { min-height: 80px; resize: vertical; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .image-preview {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-top: 8px;
-            border: 2px solid #667eea;
-            display: none;
+            width: 70px; height: 70px; border-radius: 50%; object-fit: cover;
+            margin-top: 10px; border: 3px solid #667eea; display: none;
+        }
+        .modal-footer { display: flex; gap: 12px; margin-top: 20px; }
+        .btn-submit { flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 12px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+        .btn-cancel { flex: 1; background: #f1f5f9; color: #475569; border: none; padding: 12px; border-radius: 12px; font-weight: 600; cursor: pointer; }
+
+        .empty-state { text-align: center; padding: 60px; color: #94a3b8; grid-column: 1 / -1; }
+        .empty-state i { font-size: 64px; margin-bottom: 16px; opacity: 0.5; }
+
+        @media (max-width: 1024px) {
+            .main-content { padding: 16px; margin-left: 0; }
+            .topbar { padding: 14px 18px; margin-top: 56px; flex-direction: column; align-items: stretch; gap: 12px; }
+            .page-title h1 { font-size: 20px; }
+            .btn-add { width: 100%; justify-content: center; padding: 12px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .stat-card { padding: 14px 16px; }
+            .stat-icon { width: 40px; height: 40px; font-size: 16px; }
+            .stat-info h3 { font-size: 20px; }
+            .alumni-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
         }
 
-        .modal-footer {
-            display: flex;
-            gap: 12px;
-            margin-top: 20px;
+        @media (max-width: 768px) {
+            .topbar { padding: 12px 16px; margin-top: 52px; }
+            .page-title h1 { font-size: 18px; }
+            .page-title p { font-size: 11px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .stat-card { padding: 12px 14px; }
+            .stat-icon { width: 36px; height: 36px; font-size: 14px; }
+            .stat-info h3 { font-size: 18px; }
+            .stat-info p { font-size: 10px; }
+            .filter-section { flex-direction: column; align-items: stretch; gap: 10px; padding: 12px 14px; }
+            .filter-group { flex-direction: column; gap: 8px; }
+            .filter-select, .search-input { width: 100% !important; padding: 10px 14px; font-size: 13px; }
+            .alumni-grid { grid-template-columns: 1fr; gap: 16px; }
+            .alumni-header { padding: 14px 10px 36px 10px; }
+            .alumni-avatar { width: 64px; height: 64px; font-size: 28px; }
+            .alumni-name { font-size: 14px; }
+            .alumni-year-badge { font-size: 9px; padding: 3px 10px; }
+            .alumni-body { padding: 14px; }
+            .alumni-info-item { font-size: 12px; }
+            .alumni-testimoni { font-size: 11px; max-height: 50px; }
+            .modal-content { padding: 20px; margin: 12px; max-height: 90vh; }
+            .modal-header h2 { font-size: 17px; }
+            .form-row { grid-template-columns: 1fr; gap: 10px; }
+            .form-group { margin-bottom: 12px; }
+            .form-group input, .form-group select, .form-group textarea { font-size: 14px; padding: 10px 12px; }
+            .modal-footer { flex-direction: column; gap: 8px; }
+            .btn-submit, .btn-cancel { padding: 12px; }
+            .action-btn { font-size: 11px; padding: 4px 8px; }
+            .menu-toggle { top: 12px; left: 12px; padding: 10px 12px; font-size: 16px; }
         }
 
-        .btn-submit {
-            flex: 1;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
+        @media (max-width: 480px) {
+            .topbar { margin-top: 46px; padding: 10px 14px; }
+            .page-title h1 { font-size: 16px; }
+            .page-title p { font-size: 10px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .stat-card { padding: 10px 12px; }
+            .stat-icon { width: 32px; height: 32px; font-size: 12px; }
+            .stat-info h3 { font-size: 16px; }
+            .stat-info p { font-size: 10px; }
+            .btn-add { padding: 10px; font-size: 13px; }
+            .alumni-avatar { width: 56px; height: 56px; font-size: 24px; }
+            .alumni-name { font-size: 13px; }
+            .alumni-body { padding: 12px; }
+            .alumni-info-item { font-size: 11px; }
+            .alumni-testimoni { font-size: 10px; max-height: 44px; padding: 8px 10px; }
+            .modal-content { padding: 16px; border-radius: 18px; }
+            .modal-header h2 { font-size: 16px; }
         }
 
-        .btn-cancel {
-            flex: 1;
-            background: #f1f5f9;
-            color: #475569;
-            border: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-weight: 600;
-            cursor: pointer;
+        @media (max-width: 360px) {
+            .topbar { margin-top: 40px; padding: 8px 10px; }
+            .page-title h1 { font-size: 14px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .stat-card { padding: 8px 12px; }
+            .stat-icon { width: 32px; height: 32px; font-size: 14px; }
+            .stat-info h3 { font-size: 15px; }
+            .menu-toggle { top: 8px; left: 8px; padding: 8px 10px; font-size: 14px; }
         }
 
-        .empty-state {
-            text-align: center;
-            padding: 40px;
-            color: #94a3b8;
-            grid-column: 1 / -1;
-        }
-
-        .empty-state i {
-            font-size: 48px;
-            margin-bottom: 12px;
-            opacity: 0.5;
-        }
+        input, select, textarea { font-size: 16px !important; }
     </style>
 </head>
 <body>
@@ -613,9 +279,7 @@
     <!-- SIDEBAR -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="logo-icon-small">
-                <i class="fas fa-landmark" style="font-size: 24px;"></i>
-            </div>
+            <div class="logo-icon-small"><i class="fas fa-landmark" style="font-size: 24px;"></i></div>
             <h2>YP Nusantara Sejahtera</h2>
             <p>Admin Panel Yayasan</p>
         </div>
@@ -639,7 +303,7 @@
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="topbar">
             <div class="page-title">
@@ -651,10 +315,8 @@
             </button>
         </div>
 
-        <!-- Stats Cards -->
         <div class="stats-grid" id="statsGrid"></div>
 
-        <!-- Filter Section -->
         <div class="filter-section">
             <div class="filter-group">
                 <select class="filter-select" id="filterLevel">
@@ -667,11 +329,11 @@
                 </select>
                 <select class="filter-select" id="filterYear">
                     <option value="">📅 Semua Tahun</option>
-                    <option value="2020">2020</option>
-                    <option value="2021">2021</option>
-                    <option value="2022">2022</option>
-                    <option value="2023">2023</option>
                     <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
                 </select>
             </div>
             <div class="filter-group">
@@ -679,11 +341,10 @@
             </div>
         </div>
 
-        <!-- Alumni Grid -->
         <div class="alumni-grid" id="alumniGrid"></div>
     </div>
 
-    <!-- Modal Form -->
+    <!-- MODAL -->
     <div class="modal" id="alumniModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -691,7 +352,7 @@
                 <button class="modal-close" id="closeModalBtn">&times;</button>
             </div>
             <input type="hidden" id="editId">
-            
+
             <div class="form-row">
                 <div class="form-group">
                     <label>Nama Lengkap</label>
@@ -740,63 +401,102 @@
     </div>
 
     <script>
-        if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
+        if (!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        let alumni = JSON.parse(localStorage.getItem('alumni')) || [
-            {id:1, name:'Dr. Ahmad Fauzi', level:'SMA', year:2005, job:'Dosen Universitas', testimoni:'Terima kasih SMA Nusantara Prestasi.', photo:''},
-            {id:2, name:'Siti Nurhaliza', level:'Universitas', year:2022, job:'Analis Keuangan', testimoni:'Kampus yang memberikan bekal ilmu.', photo:''},
-            {id:3, name:'Budi Santoso', level:'SMP', year:2010, job:'Software Engineer', testimoni:'SMP mengajarkan disiplin.', photo:''},
-            {id:4, name:'Dewi Anggraeni', level:'SD', year:2008, job:'Guru SD', testimoni:'SD Nusantara tempat menyenangkan.', photo:''},
-            {id:5, name:'Fathia Zahra', level:'SMA', year:2024, job:'Mahasiswa UI', testimoni:'Bimbingan dan dukungan sangat berkesan.', photo:''},
-            {id:6, name:'Rizky Ramadhan', level:'Universitas', year:2023, job:'Full Stack Dev', testimoni:'Skill yang siap pakai di industri.', photo:''},
-            {id:7, name:'Sarah Azzahra', level:'SMA', year:2023, job:'Mahasiswa Kedokteran', testimoni:'Terima kasih guru-guru terbaik.', photo:''},
-            {id:8, name:'M. Iqbal', level:'SMP', year:2018, job:'Pengusaha', testimoni:'Mengajarkan jiwa kepemimpinan.', photo:''},
-            {id:9, name:'Nadia Putri', level:'Universitas', year:2024, job:'Data Scientist', testimoni:'Ilmu statistika sangat bermanfaat.', photo:''},
-            {id:10, name:'Andre Wijaya', level:'SMA', year:2022, job:'UI/UX Designer', testimoni:'Terima kasih atas kreativitasnya.', photo:''},
-            {id:11, name:'Cynthia Dewi', level:'SD', year:2015, job:'Dokter', testimoni:'Dasar pendidikan yang kuat.', photo:''},
-            {id:12, name:'Bayu Saputra', level:'SMP', year:2016, job:'Polisi', testimoni:'Membentuk karakter yang baik.', photo:''},
+        // ========== AMBIL DATA DARI LOCALSTORAGE ==========
+        function getData(key, defaultData) {
+            const data = localStorage.getItem(key);
+            if (data) {
+                try { return JSON.parse(data); } catch (e) { return defaultData; }
+            } else {
+                localStorage.setItem(key, JSON.stringify(defaultData));
+                return defaultData;
+            }
+        }
+
+        function saveData(key, data) {
+            localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        // ========== DATA DEFAULT ALUMNI ==========
+        const defaultAlumni = [
+            { id: 1, name: 'Dr. Ahmad Fauzi, M.Pd', level: 'SMA', id_sekolah: 4, year: 2005, job: 'Dosen Universitas',
+                testimoni: 'Terima kasih SMA Nusantara Prestasi yang telah membentuk karakter.', photo: '' },
+            { id: 2, name: 'Siti Nurhaliza, S.E.', level: 'Universitas', id_sekolah: 5, year: 2022,
+                job: 'Analis Keuangan',
+                testimoni: 'Kampus yang memberikan bekal ilmu dan pengalaman berharga.', photo: '' },
+            { id: 3, name: 'Budi Santoso, S.Kom', level: 'SMP', id_sekolah: 3, year: 2010, job: 'Software Engineer',
+                testimoni: 'SMP mengajarkan disiplin dan kerja keras.', photo: '' },
+            { id: 4, name: 'Dewi Anggraeni, S.Pd', level: 'SD', id_sekolah: 2, year: 2008, job: 'Guru SD',
+                testimoni: 'SD Nusantara tempat yang menyenangkan.', photo: '' },
+            { id: 5, name: 'Fathia Zahra', level: 'SMA', id_sekolah: 4, year: 2024, job: 'Mahasiswa UI',
+                testimoni: 'Bimbingan guru-guru sangat berkesan.', photo: '' },
+            { id: 6, name: 'Rizky Ramadhan, S.T.', level: 'Universitas', id_sekolah: 5, year: 2023,
+                job: 'Full Stack Developer', testimoni: 'Skill yang siap pakai di industri.', photo: '' },
+            { id: 7, name: 'Sarah Azzahra', level: 'SMA', id_sekolah: 4, year: 2023, job: 'Mahasiswa Kedokteran',
+                testimoni: 'Terima kasih guru-guru terbaik.', photo: '' },
+            { id: 8, name: 'M. Iqbal, S.E.', level: 'SMP', id_sekolah: 3, year: 2018, job: 'Pengusaha',
+                testimoni: 'Mengajarkan jiwa kepemimpinan.', photo: '' },
+            { id: 9, name: 'Nadia Putri, S.Si', level: 'Universitas', id_sekolah: 5, year: 2024,
+                job: 'Data Scientist',
+                testimoni: 'Ilmu statistika sangat bermanfaat.', photo: '' },
+            { id: 10, name: 'Andre Wijaya, S.Ds', level: 'SMA', id_sekolah: 4, year: 2022, job: 'UI/UX Designer',
+                testimoni: 'Terima kasih atas kreativitasnya.', photo: '' }
         ];
 
-        function saveToLocalStorage() { localStorage.setItem('alumni', JSON.stringify(alumni)); }
+        // ========== LOAD DATA ==========
+        let alumni = getData('alumni', defaultAlumni);
+
+        function saveToLocalStorage() {
+            saveData('alumni', alumni);
+        }
 
         function getUnitIcon(level) {
-            const map = {TK:'🏫', SD:'📚', SMP:'📖', SMA:'🎓', Universitas:'🏛️'};
+            const map = { TK: '🏫', SD: '📚', SMP: '📖', SMA: '🎓', Universitas: '🏛️' };
             return map[level] || '🎓';
         }
 
         function updateStats() {
+            // PASTIKAN alumni ADA dan ARRAY
+            if (!alumni || !Array.isArray(alumni)) {
+                alumni = getData('alumni', defaultAlumni);
+            }
+
             const total = alumni.length;
-            const byLevel = {TK:0, SD:0, SMP:0, SMA:0, Universitas:0};
-            
-            alumni.forEach(a => { 
-                if(byLevel[a.level] !== undefined) byLevel[a.level]++; 
+            const byLevel = { TK: 0, SD: 0, SMP: 0, SMA: 0, Universitas: 0 };
+            const byYear = {};
+
+            alumni.forEach(a => {
+                if (byLevel[a.level] !== undefined) byLevel[a.level]++;
+                byYear[a.year] = (byYear[a.year] || 0) + 1;
             });
-            
+
             const latestYear = Math.max(...alumni.map(a => a.year));
-            
+
             document.getElementById('statsGrid').innerHTML = `
                 <div class="stat-card">
-                    <div class="stat-icon" style="background:#e0e7ff;"><i class="fas fa-user-graduate" style="color:#4338ca; font-size:18px;"></i></div>
+                    <div class="stat-icon" style="background:#e0e7ff;"><i class="fas fa-user-graduate" style="color:#4338ca; font-size:22px;"></i></div>
                     <div class="stat-info"><h3>${total}</h3><p>Total Alumni</p></div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon" style="background:#dcfce7;"><i class="fas fa-graduation-cap" style="color:#166534; font-size:18px;"></i></div>
+                    <div class="stat-icon" style="background:#dcfce7;"><i class="fas fa-graduation-cap" style="color:#166534; font-size:22px;"></i></div>
                     <div class="stat-info"><h3>${byLevel.SMA + byLevel.Universitas}</h3><p>Lulusan Akhir</p></div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon" style="background:#fef3c7;"><i class="fas fa-calendar" style="color:#92400e; font-size:18px;"></i></div>
+                    <div class="stat-icon" style="background:#fef3c7;"><i class="fas fa-calendar" style="color:#92400e; font-size:22px;"></i></div>
                     <div class="stat-info"><h3>${latestYear}</h3><p>Tahun Terbaru</p></div>
                 </div>
                 <div class="stat-card">
-                    <div class="stat-icon" style="background:#f3e8ff;"><i class="fas fa-building" style="color:#6b21a5; font-size:18px;"></i></div>
+                    <div class="stat-icon" style="background:#f3e8ff;"><i class="fas fa-building" style="color:#6b21a5; font-size:22px;"></i></div>
                     <div class="stat-info"><h3>${byLevel.Universitas}</h3><p>Alumni Univ</p></div>
                 </div>
             `;
         }
 
+        // ========== IMAGE PREVIEW ==========
         document.getElementById('alumniPhoto').addEventListener('change', function(e) {
             const file = e.target.files[0];
-            if(file) {
+            if (file) {
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     document.getElementById('imagePreview').src = event.target.result;
@@ -806,24 +506,38 @@
             }
         });
 
+        // ========== RENDER ALUMNI ==========
         function renderAlumni() {
+            // RELOAD DATA TERBARU, PASTIKAN ARRAY
+            alumni = getData('alumni', defaultAlumni);
+
+            // CEK APAKAH alumni ADALAH ARRAY
+            if (!alumni || !Array.isArray(alumni)) {
+                alumni = defaultAlumni;
+                saveToLocalStorage();
+            }
+
             const filterLevel = document.getElementById('filterLevel').value;
             const filterYear = document.getElementById('filterYear').value;
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            
+
             let filtered = alumni;
-            if(filterLevel) filtered = filtered.filter(a => a.level === filterLevel);
-            if(filterYear) filtered = filtered.filter(a => a.year == filterYear);
-            if(searchTerm) filtered = filtered.filter(a => a.name.toLowerCase().includes(searchTerm) || a.job.toLowerCase().includes(searchTerm));
-            
+            if (filterLevel) filtered = filtered.filter(a => a.level === filterLevel);
+            if (filterYear) filtered = filtered.filter(a => a.year == filterYear);
+            if (searchTerm) filtered = filtered.filter(a =>
+                a.name.toLowerCase().includes(searchTerm) ||
+                a.job.toLowerCase().includes(searchTerm)
+            );
+
             const container = document.getElementById('alumniGrid');
-            
-            if(filtered.length === 0) {
-                container.innerHTML = `<div class="empty-state"><i class="fas fa-user-graduate"></i><br>Tidak ada data alumni</div>`;
+
+            if (!filtered || filtered.length === 0) {
+                container.innerHTML =
+                    `<div class="empty-state"><i class="fas fa-user-graduate"></i><br>Tidak ada data alumni</div>`;
                 updateStats();
                 return;
             }
-            
+
             container.innerHTML = filtered.map(a => `
                 <div class="alumni-card">
                     <div class="alumni-header">
@@ -831,7 +545,7 @@
                             `<img src="${a.photo}" class="alumni-avatar" style="object-fit:cover;">` : 
                             `<div class="alumni-avatar"><i class="fas fa-user-graduate fa-2x"></i></div>`
                         }
-                        <div class="alumni-name" title="${a.name}">${a.name.length > 20 ? a.name.substring(0, 18) + '...' : a.name}</div>
+                        <div class="alumni-name">${a.name.length > 25 ? a.name.substring(0, 22) + '...' : a.name}</div>
                         <div class="alumni-year-badge">🎓 ${a.year}</div>
                     </div>
                     <div class="alumni-body">
@@ -841,10 +555,10 @@
                         </div>
                         <div class="alumni-info-item">
                             <i class="fas fa-briefcase"></i>
-                            <span title="${a.job}">${a.job.length > 25 ? a.job.substring(0, 22) + '...' : a.job}</span>
+                            <span title="${a.job}">${a.job.length > 30 ? a.job.substring(0, 27) + '...' : a.job}</span>
                         </div>
                         <div class="alumni-testimoni" title="${a.testimoni}">
-                            ${a.testimoni.length > 60 ? a.testimoni.substring(0, 57) + '...' : a.testimoni}
+                            ${a.testimoni.length > 70 ? a.testimoni.substring(0, 67) + '...' : a.testimoni}
                         </div>
                         <div class="alumni-actions">
                             <button class="action-btn btn-view" onclick="viewAlumni(${a.id})"><i class="fas fa-eye"></i> Lihat</button>
@@ -857,15 +571,46 @@
             updateStats();
         }
 
+        // ========== CRUD ==========
         window.viewAlumni = (id) => {
+            alumni = getData('alumni', defaultAlumni);
             const item = alumni.find(a => a.id === id);
-            if(item) {
+            if (item) {
                 alert(`🎓 DETAIL ALUMNI\n\nNama: ${item.name}\nTahun: ${item.year}\nUnit: ${item.level}\nPekerjaan: ${item.job}\n\nTestimoni:\n"${item.testimoni}"`);
             }
         };
 
+        window.editAlumni = (id) => {
+            alumni = getData('alumni', defaultAlumni);
+            const item = alumni.find(a => a.id === id);
+            if (item) {
+                document.getElementById('modalTitle').innerHTML = '<i class="fas fa-edit"></i> Edit Alumni';
+                document.getElementById('editId').value = item.id;
+                document.getElementById('alumniName').value = item.name;
+                document.getElementById('alumniYear').value = item.year;
+                document.getElementById('alumniLevel').value = item.level;
+                document.getElementById('alumniJob').value = item.job;
+                document.getElementById('alumniTestimoni').value = item.testimoni;
+                if (item.photo) {
+                    document.getElementById('imagePreview').src = item.photo;
+                    document.getElementById('imagePreview').style.display = 'block';
+                }
+                document.getElementById('alumniModal').style.display = 'flex';
+            }
+        };
+
+        window.deleteAlumni = (id) => {
+            if (confirm('⚠️ Hapus alumni ini?')) {
+                alumni = alumni.filter(a => a.id !== id);
+                saveToLocalStorage();
+                renderAlumni();
+            }
+        };
+
+        // ========== MODAL ==========
         const modal = document.getElementById('alumniModal');
-        document.getElementById('openModalBtn').onclick = () => {
+
+        document.getElementById('openModalBtn').onclick = function() {
             document.getElementById('modalTitle').innerHTML = '<i class="fas fa-user-plus"></i> Tambah Alumni';
             document.getElementById('editId').value = '';
             document.getElementById('alumniName').value = '';
@@ -878,10 +623,10 @@
             modal.style.display = 'flex';
         };
 
-        document.getElementById('closeModalBtn').onclick = () => modal.style.display = 'none';
-        document.getElementById('cancelModalBtn').onclick = () => modal.style.display = 'none';
+        document.getElementById('closeModalBtn').onclick = function() { modal.style.display = 'none'; };
+        document.getElementById('cancelModalBtn').onclick = function() { modal.style.display = 'none'; };
 
-        document.getElementById('saveBtn').onclick = () => {
+        document.getElementById('saveBtn').onclick = function() {
             const id = document.getElementById('editId').value;
             const name = document.getElementById('alumniName').value;
             const year = parseInt(document.getElementById('alumniYear').value);
@@ -890,55 +635,52 @@
             const testimoni = document.getElementById('alumniTestimoni').value;
             const photo = document.getElementById('imagePreview').src;
 
-            if(!name || !job) return alert('⚠️ Nama dan pekerjaan harus diisi!');
+            if (!name || !job) {
+                alert('⚠️ Nama dan pekerjaan harus diisi!');
+                return;
+            }
 
-            if(id) {
+            // Cari id_sekolah dari level
+            const schools = getData('schools', []);
+            const school = schools.find(s => s.level === level);
+            const id_sekolah = school ? school.id : null;
+
+            if (id) {
                 const index = alumni.findIndex(a => a.id == id);
-                if(index !== -1) alumni[index] = {id: parseInt(id), name, year, level, job, testimoni, photo};
+                if (index !== -1) alumni[index] = { id: parseInt(id), name, level, id_sekolah, year, job, testimoni,
+                    photo };
             } else {
                 const newId = Math.max(...alumni.map(a => a.id), 0) + 1;
-                alumni.push({id:newId, name, year, level, job, testimoni, photo});
+                alumni.push({ id: newId, name, level, id_sekolah, year, job, testimoni, photo });
             }
             saveToLocalStorage();
             renderAlumni();
             modal.style.display = 'none';
         };
 
-        window.editAlumni = (id) => {
-            const item = alumni.find(a => a.id === id);
-            if(item) {
-                document.getElementById('modalTitle').innerHTML = '<i class="fas fa-edit"></i> Edit Alumni';
-                document.getElementById('editId').value = item.id;
-                document.getElementById('alumniName').value = item.name;
-                document.getElementById('alumniYear').value = item.year;
-                document.getElementById('alumniLevel').value = item.level;
-                document.getElementById('alumniJob').value = item.job;
-                document.getElementById('alumniTestimoni').value = item.testimoni;
-                if(item.photo) {
-                    document.getElementById('imagePreview').src = item.photo;
-                    document.getElementById('imagePreview').style.display = 'block';
-                }
-                modal.style.display = 'flex';
-            }
-        };
-
-        window.deleteAlumni = (id) => {
-            if(confirm('⚠️ Hapus alumni ini?')) {
-                alumni = alumni.filter(a => a.id !== id);
-                saveToLocalStorage();
-                renderAlumni();
-            }
-        };
-
+        // ========== EVENT LISTENERS ==========
         document.getElementById('filterLevel').addEventListener('change', renderAlumni);
         document.getElementById('filterYear').addEventListener('change', renderAlumni);
         document.getElementById('searchInput').addEventListener('input', renderAlumni);
+
+        // ========== INIT ==========
         renderAlumni();
 
-        // ==================== NAVIGASI ====================
-        document.querySelectorAll('.nav-item[data-page]').forEach(item => {
-            item.addEventListener('click', () => {
-                const page = item.dataset.page;
+        // ==================== NAVIGASI (FIX MACET) ====================
+        function getBasePath() {
+            if (window.location.pathname.includes('/pages/')) {
+                return '';
+            } else {
+                return 'pages/';
+            }
+        }
+        const basePath = getBasePath();
+
+        // HAPUS SEMUA EVENT LISTENER LAMA, TAMBAHKAN YANG BARU
+        document.querySelectorAll('.nav-item[data-page]').forEach(function(item) {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const page = this.dataset.page;
                 const pages = {
                     dashboard: 'dashboard.html',
                     profil: 'profil-yayasan.html',
@@ -956,24 +698,45 @@
                     kontak: 'kontak.html',
                     laporan: 'laporan.html'
                 };
-                if(pages[page]) window.location.href = pages[page];
+                if (pages[page]) {
+                    window.location.href = basePath + pages[page];
+                }
             });
         });
 
-        document.getElementById('logoutBtn').onclick = () => {
-            if(confirm('Yakin ingin logout?')) {
+        // ========== LOGOUT ==========
+        document.getElementById('logoutBtn').onclick = function() {
+            if (confirm('Yakin ingin logout?')) {
                 localStorage.removeItem('isLoggedIn');
                 window.location.href = '../index.html';
             }
         };
 
-        document.getElementById('menuToggle').onclick = () => {
+        // ========== TOGGLE SIDEBAR ==========
+        document.getElementById('menuToggle').onclick = function() {
             document.getElementById('sidebar').classList.toggle('active');
         };
 
+        // ========== TUTUP SIDEBAR SAAT KLIK DI LUAR ==========
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (sidebar && toggle) {
+                if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+        // ========== TUTUP MODAL SAAT KLIK DI LUAR ==========
         window.onclick = function(event) {
-            if (event.target === modal) modal.style.display = 'none';
-        }
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        console.log('✅ Alumni page loaded successfully!');
+        console.log('Total alumni:', alumni.length);
     </script>
 </body>
 </html>
