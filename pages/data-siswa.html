@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Data Siswa - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,9 +106,11 @@
             background: #1a2a4f;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 14px 16px;
             border-radius: 12px;
             cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 1024px) {
@@ -117,10 +119,11 @@
             }
             .sidebar.active {
                 left: 0;
+                box-shadow: 4px 0 30px rgba(0,0,0,0.3);
             }
             .main-content {
                 margin-left: 0;
-                padding: 20px;
+                padding: 16px;
             }
             .menu-toggle {
                 display: block;
@@ -568,6 +571,239 @@
             border-radius: 8px;
             display: inline-block;
         }
+
+        /* ================================================================ */
+        /* ========== TAMBAHAN RESPONSIVE UNTUK HP ========== */
+        /* ================================================================ */
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 16px;
+                margin-left: 0;
+            }
+            .topbar {
+                padding: 14px 18px;
+                margin-top: 56px;
+            }
+            .page-title h1 {
+                font-size: 20px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .stat-card {
+                padding: 14px 16px;
+            }
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .stat-info h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 14px 16px;
+                margin-top: 56px;
+            }
+            .btn-add {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 12px 14px;
+            }
+            .stat-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
+            .stat-info p {
+                font-size: 10px;
+            }
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 12px 14px;
+            }
+            .filter-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .filter-select,
+            .search-input {
+                width: 100% !important;
+                padding: 10px 14px;
+                font-size: 13px;
+            }
+            .table-wrapper {
+                border-radius: 12px;
+            }
+            table {
+                min-width: 700px;
+                font-size: 12px;
+            }
+            th, td {
+                padding: 10px 12px;
+                font-size: 12px;
+            }
+            th {
+                font-size: 11px;
+            }
+            .modal-content {
+                padding: 20px;
+                margin: 12px;
+                max-height: 90vh;
+            }
+            .modal-header h2 {
+                font-size: 17px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .form-group {
+                margin-bottom: 12px;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+            .modal-footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .btn-submit,
+            .btn-cancel {
+                padding: 12px;
+            }
+            .detail-card {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .detail-avatar {
+                width: 80px;
+                height: 80px;
+                font-size: 32px;
+            }
+            .action-group {
+                flex-wrap: wrap;
+            }
+            .btn-action {
+                padding: 4px 8px;
+                font-size: 11px;
+            }
+            .nis-badge {
+                font-size: 11px;
+                padding: 2px 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 10px 12px;
+            }
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .stat-info h3 {
+                font-size: 16px;
+            }
+            .stat-info p {
+                font-size: 10px;
+            }
+            .page-title h1 {
+                font-size: 18px;
+            }
+            .page-title p {
+                font-size: 12px;
+            }
+            .menu-toggle {
+                top: 12px;
+                left: 12px;
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+            .modal-content {
+                padding: 16px;
+                border-radius: 18px;
+            }
+            table {
+                min-width: 600px;
+                font-size: 11px;
+            }
+            th, td {
+                padding: 8px 10px;
+                font-size: 11px;
+            }
+            .student-avatar {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .badge {
+                font-size: 10px;
+                padding: 2px 8px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-card {
+                padding: 10px 14px;
+            }
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
+        }
+
+        /* Mencegah zoom otomatis di input pada mobile */
+        input, select, textarea {
+            font-size: 16px !important;
+        }
+
+        .table-wrapper::-webkit-scrollbar {
+            height: 4px;
+        }
+        .table-wrapper::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 4px;
+        }
+        .table-wrapper::-webkit-scrollbar-thumb {
+            background: #34a853;
+            border-radius: 4px;
+        }
     </style>
 </head>
 <body>
@@ -804,18 +1040,42 @@
     <script>
         if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        // Data Siswa
-        let students = JSON.parse(localStorage.getItem('students')) || [
-            {id:1, nis:'2024001', name:'Ahmad Rizki', level:'TK', class:'TK B', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7001', email:'ahmad@example.com', address:'Jl. Merpati No.5', photo:''},
-            {id:2, nis:'2024002', name:'Siti Nurhaliza', level:'SD', class:'5A', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7002', email:'siti@example.com', address:'Jl. Kenanga No.10', photo:''},
-            {id:3, nis:'2024003', name:'Budi Santoso', level:'SD', class:'4B', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7003', email:'budi@example.com', address:'Jl. Mawar No.8', photo:''},
-            {id:4, nis:'2024004', name:'Dewi Anggraeni', level:'SMP', class:'2A', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7004', email:'dewi@example.com', address:'Jl. Melati No.15', photo:''},
-            {id:5, nis:'2024005', name:'Fathia Zahra', level:'SMA', class:'XI IPA 1', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7005', email:'fathia@example.com', address:'Jl. Cendana No.20', photo:''},
-            {id:6, nis:'2024006', name:'Hanna Marpaung', level:'Kuliah', class:null, semester:'Semester 5', faculty:'Fakultas Teknik & Informatika', prodi:'Teknik Informatika (S1)', status:'Aktif', ipk:'3.85', parentPhone:'0812-3456-7006', email:'hanna@unida.ac.id', address:'Jl. Mahasiswa No.30', photo:''},
-            {id:7, nis:'2024007', name:'Rizky Febrian', level:'Kuliah', class:null, semester:'Semester 3', faculty:'Fakultas Ekonomi & Bisnis', prodi:'Manajemen (S1)', status:'Aktif', ipk:'3.65', parentPhone:'0812-3456-7007', email:'rizky@unida.ac.id', address:'Jl. Merdeka No.15', photo:''},
+        // ========== FUNGSI UNTUK MEMBACA DATA DARI LOCALSTORAGE ==========
+        function getData(key, defaultData) {
+            const data = localStorage.getItem(key);
+            if (data) {
+                try {
+                    return JSON.parse(data);
+                } catch (e) {
+                    return defaultData;
+                }
+            } else {
+                localStorage.setItem(key, JSON.stringify(defaultData));
+                return defaultData;
+            }
+        }
+
+        function saveData(key, data) {
+            localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        // ========== DATA DEFAULT ==========
+        const defaultStudents = [
+            {id:1, nis:'2024001', name:'Ahmad Rizki', level:'TK', id_sekolah:1, class:'TK B', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7001', email:'ahmad@example.com', address:'Jl. Merpati No.5', photo:''},
+            {id:2, nis:'2024002', name:'Siti Nurhaliza', level:'SD', id_sekolah:2, class:'5A', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7002', email:'siti@example.com', address:'Jl. Kenanga No.10', photo:''},
+            {id:3, nis:'2024003', name:'Budi Santoso', level:'SD', id_sekolah:2, class:'4B', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7003', email:'budi@example.com', address:'Jl. Mawar No.8', photo:''},
+            {id:4, nis:'2024004', name:'Dewi Anggraeni', level:'SMP', id_sekolah:3, class:'2A', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7004', email:'dewi@example.com', address:'Jl. Melati No.15', photo:''},
+            {id:5, nis:'2024005', name:'Fathia Zahra', level:'SMA', id_sekolah:4, class:'XI IPA 1', semester:null, faculty:null, prodi:null, status:'Aktif', ipk:null, parentPhone:'0812-3456-7005', email:'fathia@example.com', address:'Jl. Cendana No.20', photo:''},
+            {id:6, nis:'2024006', name:'Hanna Marpaung', level:'Kuliah', id_sekolah:5, class:null, semester:'Semester 5', faculty:'Fakultas Teknik & Informatika', prodi:'Teknik Informatika (S1)', status:'Aktif', ipk:'3.85', parentPhone:'0812-3456-7006', email:'hanna@unida.ac.id', address:'Jl. Mahasiswa No.30', photo:''},
+            {id:7, nis:'2024007', name:'Rizky Febrian', level:'Kuliah', id_sekolah:5, class:null, semester:'Semester 3', faculty:'Fakultas Ekonomi & Bisnis', prodi:'Manajemen (S1)', status:'Aktif', ipk:'3.65', parentPhone:'0812-3456-7007', email:'rizky@unida.ac.id', address:'Jl. Merdeka No.15', photo:''}
         ];
 
-        function saveToLocalStorage() { localStorage.setItem('students', JSON.stringify(students)); }
+        // ========== LOAD DATA ==========
+        let students = getData('students', defaultStudents);
+
+        function saveToLocalStorage() {
+            saveData('students', students);
+        }
 
         function getBadgeClass(level) {
             const map = {TK:'badge-tk', SD:'badge-sd', SMP:'badge-smp', SMA:'badge-sma', Kuliah:'badge-kuliah'};
@@ -905,6 +1165,9 @@
         });
 
         function renderTable() {
+            // ========== RELOAD DATA TERBARU DARI LOCALSTORAGE ==========
+            students = getData('students', defaultStudents);
+
             const filterJenjang = document.getElementById('filterJenjang').value;
             const filterKelas = document.getElementById('filterKelas').value;
             const filterStatus = document.getElementById('filterStatus').value;
@@ -965,6 +1228,7 @@
 
         // View Detail
         window.viewStudent = (id) => {
+            students = getData('students', defaultStudents);
             const student = students.find(s => s.id === id);
             if(student) {
                 let detailHtml = `
@@ -1050,7 +1314,12 @@
 
             if(!nis || !name) return alert('⚠️ NIS/NIM dan Nama harus diisi!');
 
-            let studentData = {nis, name, level, status, parentPhone, email, address, photo};
+            // Cari id_sekolah dari level
+            const schools = getData('schools', []);
+            const school = schools.find(s => s.level === level);
+            const id_sekolah = school ? school.id : null;
+
+            let studentData = {nis, name, level, id_sekolah, status, parentPhone, email, address, photo};
 
             if(level === 'Kuliah') {
                 studentData.class = null;
@@ -1082,6 +1351,7 @@
         };
 
         window.editStudent = (id) => {
+            students = getData('students', defaultStudents);
             const student = students.find(s => s.id === id);
             if(student) {
                 document.getElementById('modalTitle').innerHTML = '<i class="fas fa-user-edit"></i> Edit Siswa/Mahasiswa';
@@ -1129,7 +1399,16 @@
         document.getElementById('searchInput').addEventListener('input', renderTable);
         renderTable();
 
-        // Navigasi
+        // ==================== NAVIGASI ====================
+        function getBasePath() {
+            if (window.location.pathname.includes('/pages/')) {
+                return '';
+            } else {
+                return 'pages/';
+            }
+        }
+        const basePath = getBasePath();
+
         document.querySelectorAll('.nav-item[data-page]').forEach(item => {
             item.addEventListener('click', () => {
                 const page = item.dataset.page;
@@ -1150,7 +1429,9 @@
                     kontak: 'kontak.html',
                     laporan: 'laporan.html'
                 };
-                if(pages[page]) window.location.href = pages[page];
+                if(pages[page]) {
+                    window.location.href = basePath + pages[page];
+                }
             });
         });
 
@@ -1164,6 +1445,14 @@
         document.getElementById('menuToggle').onclick = () => {
             document.getElementById('sidebar').classList.toggle('active');
         };
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
 
         window.onclick = function(event) {
             if (event.target === modal) modal.style.display = 'none';
