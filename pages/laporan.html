@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Laporan - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -107,9 +107,11 @@
             background: #1a2a4f;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 14px 16px;
             border-radius: 12px;
             cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 1024px) {
@@ -118,10 +120,11 @@
             }
             .sidebar.active {
                 left: 0;
+                box-shadow: 4px 0 30px rgba(0,0,0,0.3);
             }
             .main-content {
                 margin-left: 0;
-                padding: 20px;
+                padding: 16px;
             }
             .menu-toggle {
                 display: block;
@@ -364,9 +367,233 @@
             color: #94a3b8;
         }
 
-        @media (max-width: 768px) {
+        /* ================================================================ */
+        /* ========== TAMBAHAN RESPONSIVE UNTUK HP ========== */
+        /* ================================================================ */
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 16px;
+                margin-left: 0;
+            }
+            .topbar {
+                padding: 14px 18px;
+                margin-top: 56px;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+            .page-title h1 {
+                font-size: 20px;
+            }
+            .btn-group {
+                justify-content: stretch;
+            }
+            .btn-export {
+                flex: 1;
+                justify-content: center;
+                padding: 10px 14px;
+                font-size: 12px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 12px 14px;
+            }
+            .stat-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
             .charts-container {
                 grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar {
+                padding: 12px 16px;
+                margin-top: 52px;
+            }
+            .page-title h1 {
+                font-size: 18px;
+            }
+            .page-title p {
+                font-size: 11px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 10px 12px;
+            }
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .stat-info h3 {
+                font-size: 16px;
+            }
+            .stat-info p {
+                font-size: 10px;
+            }
+            .filter-section {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 10px;
+                padding: 10px 14px;
+            }
+            .filter-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .filter-select {
+                width: 100%;
+                font-size: 13px;
+                padding: 8px 12px;
+            }
+            .charts-container {
+                gap: 16px;
+            }
+            .chart-card {
+                padding: 14px;
+            }
+            .chart-card h3 {
+                font-size: 13px;
+            }
+            canvas {
+                max-height: 200px;
+            }
+            .table-container {
+                padding: 14px;
+            }
+            .table-container h3 {
+                font-size: 13px;
+            }
+            table {
+                font-size: 12px;
+            }
+            th, td {
+                padding: 8px 10px;
+            }
+            .btn-export {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+            .btn-export i {
+                font-size: 12px;
+            }
+            .menu-toggle {
+                top: 12px;
+                left: 12px;
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .topbar {
+                margin-top: 46px;
+                padding: 10px 14px;
+            }
+            .page-title h1 {
+                font-size: 16px;
+            }
+            .page-title p {
+                font-size: 10px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 6px;
+            }
+            .stat-card {
+                padding: 8px 10px;
+            }
+            .stat-icon {
+                width: 28px;
+                height: 28px;
+                font-size: 10px;
+            }
+            .stat-info h3 {
+                font-size: 14px;
+            }
+            .stat-info p {
+                font-size: 9px;
+            }
+            .btn-group {
+                gap: 8px;
+            }
+            .btn-export {
+                padding: 6px 10px;
+                font-size: 10px;
+                border-radius: 8px;
+            }
+            .btn-export i {
+                font-size: 10px;
+            }
+            .chart-card {
+                padding: 10px;
+            }
+            canvas {
+                max-height: 160px;
+            }
+            .table-container {
+                padding: 10px;
+                border-radius: 12px;
+            }
+            table {
+                font-size: 11px;
+            }
+            th, td {
+                padding: 6px 8px;
+            }
+            .filter-select {
+                font-size: 12px;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .topbar {
+                margin-top: 40px;
+                padding: 8px 10px;
+            }
+            .page-title h1 {
+                font-size: 14px;
+            }
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-card {
+                padding: 8px 12px;
+            }
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+            .stat-info h3 {
+                font-size: 15px;
+            }
+            .menu-toggle {
+                top: 8px;
+                left: 8px;
+                padding: 8px 10px;
+                font-size: 14px;
+            }
+            .btn-export {
+                font-size: 9px;
+                padding: 4px 8px;
+            }
+            .btn-export i {
+                font-size: 9px;
             }
         }
     </style>
@@ -457,55 +684,82 @@
     </div>
 
     <script>
-        if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
+        if (!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        // Ambil data dari localStorage
-        let schools = JSON.parse(localStorage.getItem('schools')) || [
-            {id:1, name:'TK Nusantara Ceria', level:'TK', accreditation:'A', students:185, teachers:14},
-            {id:2, name:'SD Nusantara Unggul', level:'SD', accreditation:'A', students:560, teachers:32},
-            {id:3, name:'SMP Nusantara Gemilang', level:'SMP', accreditation:'A', students:645, teachers:38},
-            {id:4, name:'SMA Nusantara Prestasi', level:'SMA', accreditation:'A', students:590, teachers:44},
-            {id:5, name:'Universitas Nusantara Digital', level:'Kuliah', accreditation:'B', students:245, teachers:28}
-        ];
-        
-        let teachers = JSON.parse(localStorage.getItem('teachers')) || [
-            {id:1, name:'Umi Kalsum, S.Pd.I', level:'TK', mapel:'Agama', position:'Guru Tetap'},
-            {id:2, name:'Siti Aminah, S.Pd', level:'SD', mapel:'Bahasa Indonesia', position:'Guru Tetap'},
-            {id:3, name:'Drs. Budi Santoso', level:'SMP', mapel:'IPA', position:'Guru Tetap'},
-            {id:4, name:'Dr. Ahmad Fauzi, M.Pd', level:'SMA', mapel:'Matematika', position:'Kepala Sekolah'},
-            {id:5, name:'Prof. Dr. Budi Santoso, M.Kom', level:'Kuliah', faculty:'Fakultas Teknik & Informatika', position:'Dekan'},
-        ];
-        
-        let students = JSON.parse(localStorage.getItem('students')) || [
-            {id:1, name:'Ahmad Rizki', level:'TK', class:'TK B', status:'Aktif'},
-            {id:2, name:'Siti Nurhaliza', level:'SD', class:'5A', status:'Aktif'},
-            {id:3, name:'Budi Santoso', level:'SD', class:'4B', status:'Aktif'},
-            {id:4, name:'Dewi Anggraeni', level:'SMP', class:'2A', status:'Aktif'},
-            {id:5, name:'Fathia Zahra', level:'SMA', class:'XI IPA 1', status:'Aktif'},
-            {id:6, name:'Hanna Marpaung', level:'Kuliah', prodi:'Teknik Informatika', status:'Aktif'},
-        ];
-        
-        let prestasi = JSON.parse(localStorage.getItem('prestasi')) || [
-            {id:1, name:'Olimpiade Sains', level:'SMA', winner:'Fathia Zahra', medal:'Emas', tingkat:'Nasional', year:2024},
-            {id:2, name:'Lomba Mewarnai', level:'TK', winner:'Ahmad Rizki', medal:'Perak', tingkat:'Provinsi', year:2024},
-        ];
-        
-        let ekskul = JSON.parse(localStorage.getItem('ekskul')) || [
-            {id:1, name:'Futsal', level:'SMA', coach:'Rizki Ramadhan', members:25},
-            {id:2, name:'Pramuka', level:'Umum', coach:'Drs. Budi Santoso', members:45},
-        ];
-        
-        let fasilitas = JSON.parse(localStorage.getItem('fasilitas')) || [
-            {id:1, name:'Laboratorium Komputer', level:'SMA', kategori:'Laboratorium'},
-            {id:2, name:'Perpustakaan', level:'Umum', kategori:'Perpustakaan'},
-        ];
-        
-        let alumni = JSON.parse(localStorage.getItem('alumni')) || [
-            {id:1, name:'Dr. Ahmad Fauzi', level:'SMA', year:2005, job:'Dosen'},
-            {id:2, name:'Siti Nurhaliza', level:'Universitas', year:2022, job:'Analis Keuangan'},
+        // ========== FUNGSI UNTUK MEMBACA DATA DARI LOCALSTORAGE ==========
+        function getData(key, defaultData) {
+            const data = localStorage.getItem(key);
+            if (data) {
+                try {
+                    return JSON.parse(data);
+                } catch (e) {
+                    return defaultData;
+                }
+            } else {
+                localStorage.setItem(key, JSON.stringify(defaultData));
+                return defaultData;
+            }
+        }
+
+        // ========== AMBIL DATA DARI LOCALSTORAGE ==========
+        const defaultSchools = [
+            { id: 1, name: 'TK Nusantara Ceria', level: 'TK', accreditation: 'A', students: 185, teachers: 14 },
+            { id: 2, name: 'SD Nusantara Unggul', level: 'SD', accreditation: 'A', students: 560, teachers: 32 },
+            { id: 3, name: 'SMP Nusantara Gemilang', level: 'SMP', accreditation: 'A', students: 645, teachers: 38 },
+            { id: 4, name: 'SMA Nusantara Prestasi', level: 'SMA', accreditation: 'A', students: 590, teachers: 44 },
+            { id: 5, name: 'Universitas Nusantara Digital', level: 'Kuliah', accreditation: 'B', students: 245, teachers: 28 }
         ];
 
-        // Update stats
+        const defaultTeachers = [
+            { id: 1, name: 'Umi Kalsum, S.Pd.I', level: 'TK', mapel: 'Agama', position: 'Guru Tetap' },
+            { id: 2, name: 'Siti Aminah, S.Pd', level: 'SD', mapel: 'Bahasa Indonesia', position: 'Guru Tetap' },
+            { id: 3, name: 'Drs. Budi Santoso', level: 'SMP', mapel: 'IPA', position: 'Guru Tetap' },
+            { id: 4, name: 'Dr. Ahmad Fauzi, M.Pd', level: 'SMA', mapel: 'Matematika', position: 'Kepala Sekolah' },
+            { id: 5, name: 'Prof. Dr. Budi Santoso, M.Kom', level: 'Kuliah', faculty: 'Fakultas Teknik & Informatika',
+                position: 'Dekan' },
+        ];
+
+        const defaultStudents = [
+            { id: 1, name: 'Ahmad Rizki', level: 'TK', class: 'TK B', status: 'Aktif' },
+            { id: 2, name: 'Siti Nurhaliza', level: 'SD', class: '5A', status: 'Aktif' },
+            { id: 3, name: 'Budi Santoso', level: 'SD', class: '4B', status: 'Aktif' },
+            { id: 4, name: 'Dewi Anggraeni', level: 'SMP', class: '2A', status: 'Aktif' },
+            { id: 5, name: 'Fathia Zahra', level: 'SMA', class: 'XI IPA 1', status: 'Aktif' },
+            { id: 6, name: 'Hanna Marpaung', level: 'Kuliah', prodi: 'Teknik Informatika', status: 'Aktif' },
+        ];
+
+        const defaultPrestasi = [
+            { id: 1, name: 'Olimpiade Sains', level: 'SMA', winner: 'Fathia Zahra', medal: 'Emas', tingkat: 'Nasional',
+                year: 2024 },
+            { id: 2, name: 'Lomba Mewarnai', level: 'TK', winner: 'Ahmad Rizki', medal: 'Perak', tingkat: 'Provinsi',
+                year: 2024 },
+        ];
+
+        const defaultEkskul = [
+            { id: 1, name: 'Futsal', level: 'SMA', coach: 'Rizki Ramadhan', members: 25, schedule: 'Sabtu, 14:00-16:00' },
+            { id: 2, name: 'Pramuka', level: 'Umum', coach: 'Drs. Budi Santoso', members: 45,
+            schedule: 'Jumat, 15:00-17:00' },
+        ];
+
+        const defaultFasilitas = [
+            { id: 1, name: 'Laboratorium Komputer', level: 'SMA', kategori: 'Laboratorium', capacity: '40 unit' },
+            { id: 2, name: 'Perpustakaan', level: 'Umum', kategori: 'Perpustakaan', capacity: '200 orang' },
+        ];
+
+        const defaultAlumni = [
+            { id: 1, name: 'Dr. Ahmad Fauzi', level: 'SMA', year: 2005, job: 'Dosen' },
+            { id: 2, name: 'Siti Nurhaliza', level: 'Universitas', year: 2022, job: 'Analis Keuangan' },
+        ];
+
+        let schools = getData('schools', defaultSchools);
+        let teachers = getData('teachers', defaultTeachers);
+        let students = getData('students', defaultStudents);
+        let prestasi = getData('prestasi', defaultPrestasi);
+        let ekskul = getData('ekskul', defaultEkskul);
+        let fasilitas = getData('fasilitas', defaultFasilitas);
+        let alumni = getData('alumni', defaultAlumni);
+
+        // ========== UPDATE STATS ==========
         function updateStats() {
             document.getElementById('statsGrid').innerHTML = `
                 <div class="stat-card">
@@ -527,19 +781,28 @@
             `;
         }
 
-        // Render charts and table based on report type
+        // ========== RENDER REPORT ==========
         function renderReport() {
+            // Reload data from localStorage
+            schools = getData('schools', defaultSchools);
+            teachers = getData('teachers', defaultTeachers);
+            students = getData('students', defaultStudents);
+            prestasi = getData('prestasi', defaultPrestasi);
+            ekskul = getData('ekskul', defaultEkskul);
+            fasilitas = getData('fasilitas', defaultFasilitas);
+            alumni = getData('alumni', defaultAlumni);
+
             const type = document.getElementById('filterReport').value;
             const yearFilter = document.getElementById('filterYear').value;
-            
+
             const chartsContainer = document.getElementById('chartsContainer');
             const tableContainer = document.getElementById('tableContainer');
-            
+
             // Show/hide year filter
             const yearSelect = document.getElementById('filterYear');
             yearSelect.style.display = type === 'prestasi' || type === 'alumni' ? 'inline-block' : 'none';
-            
-            if(type === 'summary') {
+
+            if (type === 'summary') {
                 // Summary Report - Charts
                 chartsContainer.innerHTML = `
                     <div class="chart-card">
@@ -551,7 +814,7 @@
                         <canvas id="guruChart"></canvas>
                     </div>
                 `;
-                
+
                 // Siswa Chart
                 const siswaByLevel = {
                     TK: students.filter(s => s.level === 'TK').length,
@@ -560,16 +823,18 @@
                     SMA: students.filter(s => s.level === 'SMA').length,
                     Kuliah: students.filter(s => s.level === 'Kuliah').length
                 };
-                
+
                 setTimeout(() => {
                     new Chart(document.getElementById('siswaChart'), {
                         type: 'bar',
                         data: {
                             labels: Object.keys(siswaByLevel),
-                            datasets: [{ label: 'Jumlah Siswa', data: Object.values(siswaByLevel), backgroundColor: '#667eea', borderRadius: 8 }]
-                        }
+                            datasets: [{ label: 'Jumlah Siswa', data: Object.values(siswaByLevel),
+                                backgroundColor: '#667eea', borderRadius: 8 }]
+                        },
+                        options: { responsive: true, maintainAspectRatio: true }
                     });
-                    
+
                     const guruByLevel = {
                         TK: teachers.filter(t => t.level === 'TK').length,
                         SD: teachers.filter(t => t.level === 'SD').length,
@@ -577,16 +842,19 @@
                         SMA: teachers.filter(t => t.level === 'SMA').length,
                         Kuliah: teachers.filter(t => t.level === 'Kuliah').length
                     };
-                    
+
                     new Chart(document.getElementById('guruChart'), {
                         type: 'pie',
                         data: {
                             labels: Object.keys(guruByLevel),
-                            datasets: [{ data: Object.values(guruByLevel), backgroundColor: ['#2a5298', '#34a853', '#ea4335', '#fbbc04', '#764ba2'] }]
-                        }
+                            datasets: [{ data: Object.values(guruByLevel),
+                                backgroundColor: ['#2a5298', '#34a853', '#ea4335', '#fbbc04',
+                                '#764ba2'] }]
+                        },
+                        options: { responsive: true, maintainAspectRatio: true }
                     });
                 }, 100);
-                
+
                 // Summary Table
                 tableContainer.innerHTML = `
                     <h3><i class="fas fa-chart-line"></i> Ringkasan Data Yayasan</h3>
@@ -603,18 +871,23 @@
                         </tbody>
                     </table>
                 `;
-            }
-            else if(type === 'sekolah') {
-                chartsContainer.innerHTML = `<div class="chart-card"><h3><i class="fas fa-chart-bar"></i> Akreditasi Sekolah</h3><canvas id="akreditasiChart"></canvas></div>`;
-                
-                const akreditasiCount = { A: schools.filter(s => s.accreditation === 'A').length, B: schools.filter(s => s.accreditation === 'B').length, C: schools.filter(s => s.accreditation === 'C').length };
+            } else if (type === 'sekolah') {
+                chartsContainer.innerHTML =
+                    `<div class="chart-card"><h3><i class="fas fa-chart-bar"></i> Akreditasi Sekolah</h3><canvas id="akreditasiChart"></canvas></div>`;
+
+                const akreditasiCount = { A: schools.filter(s => s.accreditation === 'A').length, B: schools.filter(s => s
+                        .accreditation === 'B').length, C: schools.filter(s => s.accreditation === 'C').length };
                 setTimeout(() => {
                     new Chart(document.getElementById('akreditasiChart'), {
                         type: 'bar',
-                        data: { labels: Object.keys(akreditasiCount), datasets: [{ label: 'Jumlah Sekolah', data: Object.values(akreditasiCount), backgroundColor: ['#34a853', '#fbbc04', '#ea4335'] }] }
+                        data: { labels: Object.keys(akreditasiCount), datasets: [{ label: 'Jumlah Sekolah',
+                                data: Object.values(akreditasiCount), backgroundColor: ['#34a853',
+                                    '#fbbc04', '#ea4335'
+                                ] }] },
+                        options: { responsive: true, maintainAspectRatio: true }
                     });
                 }, 100);
-                
+
                 tableContainer.innerHTML = `
                     <h3><i class="fas fa-school"></i> Data Unit Sekolah</h3>
                     <table>
@@ -624,15 +897,21 @@
                         </tbody>
                     </table>
                 `;
-            }
-            else if(type === 'guru') {
-                chartsContainer.innerHTML = `<div class="chart-card"><h3><i class="fas fa-chart-pie"></i> Distribusi Guru per Jenjang</h3><canvas id="guruDistChart"></canvas></div>`;
-                
-                const guruDist = { TK: teachers.filter(t => t.level === 'TK').length, SD: teachers.filter(t => t.level === 'SD').length, SMP: teachers.filter(t => t.level === 'SMP').length, SMA: teachers.filter(t => t.level === 'SMA').length, Kuliah: teachers.filter(t => t.level === 'Kuliah').length };
+            } else if (type === 'guru') {
+                chartsContainer.innerHTML =
+                    `<div class="chart-card"><h3><i class="fas fa-chart-pie"></i> Distribusi Guru per Jenjang</h3><canvas id="guruDistChart"></canvas></div>`;
+
+                const guruDist = { TK: teachers.filter(t => t.level === 'TK').length, SD: teachers.filter(t => t.level ===
+                        'SD').length, SMP: teachers.filter(t => t.level === 'SMP').length, SMA: teachers.filter(t => t
+                        .level === 'SMA').length, Kuliah: teachers.filter(t => t.level === 'Kuliah').length };
                 setTimeout(() => {
-                    new Chart(document.getElementById('guruDistChart'), { type: 'pie', data: { labels: Object.keys(guruDist), datasets: [{ data: Object.values(guruDist), backgroundColor: ['#2a5298', '#34a853', '#ea4335', '#fbbc04', '#764ba2'] }] } });
+                    new Chart(document.getElementById('guruDistChart'), { type: 'pie', data: { labels: Object.keys(
+                                guruDist), datasets: [{ data: Object.values(guruDist),
+                                backgroundColor: ['#2a5298', '#34a853', '#ea4335', '#fbbc04',
+                                '#764ba2'] }] }, options: { responsive: true,
+                            maintainAspectRatio: true } });
                 }, 100);
-                
+
                 tableContainer.innerHTML = `
                     <h3><i class="fas fa-chalkboard-user"></i> Data Tenaga Pendidik</h3>
                     <table>
@@ -640,15 +919,20 @@
                         <tbody>${teachers.map(t => `<tr><td>${t.name}</td><td>${t.level}</td><td>${t.mapel || '-'}</td><td>${t.position || 'Guru'}</td></tr>`).join('')}</tbody>
                     </table>
                 `;
-            }
-            else if(type === 'siswa') {
-                chartsContainer.innerHTML = `<div class="chart-card"><h3><i class="fas fa-chart-bar"></i> Jumlah Siswa per Jenjang</h3><canvas id="siswaDistChart"></canvas></div>`;
-                
-                const siswaDist = { TK: students.filter(s => s.level === 'TK').length, SD: students.filter(s => s.level === 'SD').length, SMP: students.filter(s => s.level === 'SMP').length, SMA: students.filter(s => s.level === 'SMA').length, Kuliah: students.filter(s => s.level === 'Kuliah').length };
+            } else if (type === 'siswa') {
+                chartsContainer.innerHTML =
+                    `<div class="chart-card"><h3><i class="fas fa-chart-bar"></i> Jumlah Siswa per Jenjang</h3><canvas id="siswaDistChart"></canvas></div>`;
+
+                const siswaDist = { TK: students.filter(s => s.level === 'TK').length, SD: students.filter(s => s.level ===
+                        'SD').length, SMP: students.filter(s => s.level === 'SMP').length, SMA: students.filter(s => s
+                        .level === 'SMA').length, Kuliah: students.filter(s => s.level === 'Kuliah').length };
                 setTimeout(() => {
-                    new Chart(document.getElementById('siswaDistChart'), { type: 'bar', data: { labels: Object.keys(siswaDist), datasets: [{ label: 'Jumlah', data: Object.values(siswaDist), backgroundColor: '#667eea' }] } });
+                    new Chart(document.getElementById('siswaDistChart'), { type: 'bar', data: { labels: Object.keys(
+                                siswaDist), datasets: [{ label: 'Jumlah', data: Object.values(
+                                siswaDist), backgroundColor: '#667eea' }] }, options: { responsive: true,
+                            maintainAspectRatio: true } });
                 }, 100);
-                
+
                 tableContainer.innerHTML = `
                     <h3><i class="fas fa-users"></i> Data Peserta Didik</h3>
                     <table>
@@ -656,19 +940,23 @@
                         <tbody>${students.map(s => `<tr><td>${s.name}</td><td>${s.level}</td><td>${s.class || s.prodi || '-'}</td><td>${s.status || 'Aktif'}</td></tr>`).join('')}</tbody>
                     </table>
                 `;
-            }
-            else if(type === 'prestasi') {
+            } else if (type === 'prestasi') {
                 let filteredPrestasi = prestasi;
-                if(yearFilter) filteredPrestasi = prestasi.filter(p => p.year == yearFilter);
-                
-                chartsContainer.innerHTML = `<div class="chart-card"><h3><i class="fas fa-chart-pie"></i> Distribusi Prestasi per Tingkat</h3><canvas id="prestasiChart"></canvas></div>`;
-                
+                if (yearFilter) filteredPrestasi = prestasi.filter(p => p.year == yearFilter);
+
+                chartsContainer.innerHTML =
+                    `<div class="chart-card"><h3><i class="fas fa-chart-pie"></i> Distribusi Prestasi per Tingkat</h3><canvas id="prestasiChart"></canvas></div>`;
+
                 const tingkatCount = { Kecamatan: 0, 'Kota/Kabupaten': 0, Provinsi: 0, Nasional: 0, Internasional: 0 };
-                filteredPrestasi.forEach(p => { if(tingkatCount[p.tingkat] !== undefined) tingkatCount[p.tingkat]++; });
+                filteredPrestasi.forEach(p => { if (tingkatCount[p.tingkat] !== undefined) tingkatCount[p.tingkat]++; });
                 setTimeout(() => {
-                    new Chart(document.getElementById('prestasiChart'), { type: 'pie', data: { labels: Object.keys(tingkatCount), datasets: [{ data: Object.values(tingkatCount), backgroundColor: ['#2a5298', '#34a853', '#ea4335', '#fbbc04', '#764ba2'] }] } });
+                    new Chart(document.getElementById('prestasiChart'), { type: 'pie', data: { labels: Object.keys(
+                                tingkatCount), datasets: [{ data: Object.values(tingkatCount),
+                                backgroundColor: ['#2a5298', '#34a853', '#ea4335', '#fbbc04',
+                                '#764ba2'] }] }, options: { responsive: true,
+                            maintainAspectRatio: true } });
                 }, 100);
-                
+
                 tableContainer.innerHTML = `
                     <h3><i class="fas fa-trophy"></i> Data Prestasi ${yearFilter ? `Tahun ${yearFilter}` : ''}</h3>
                     <table>
@@ -676,15 +964,21 @@
                         <tbody>${filteredPrestasi.map(p => `<tr><td>${p.name}</td><td>${p.winner}</td><td>${p.level}</td><td>${p.tingkat}</td><td>${p.year}</td></tr>`).join('')}</tbody>
                     </table>
                 `;
-            }
-            else if(type === 'ekskul') {
-                chartsContainer.innerHTML = `<div class="chart-card"><h3><i class="fas fa-chart-bar"></i> Jumlah Ekskul per Unit</h3><canvas id="ekskulChart"></canvas></div>`;
-                
-                const ekskulDist = { TK: ekskul.filter(e => e.level === 'TK').length, SD: ekskul.filter(e => e.level === 'SD').length, SMP: ekskul.filter(e => e.level === 'SMP').length, SMA: ekskul.filter(e => e.level === 'SMA').length, Universitas: ekskul.filter(e => e.level === 'Universitas').length, Umum: ekskul.filter(e => e.level === 'Umum').length };
+            } else if (type === 'ekskul') {
+                chartsContainer.innerHTML =
+                    `<div class="chart-card"><h3><i class="fas fa-chart-bar"></i> Jumlah Ekskul per Unit</h3><canvas id="ekskulChart"></canvas></div>`;
+
+                const ekskulDist = { TK: ekskul.filter(e => e.level === 'TK').length, SD: ekskul.filter(e => e.level ===
+                        'SD').length, SMP: ekskul.filter(e => e.level === 'SMP').length, SMA: ekskul.filter(e => e
+                        .level === 'SMA').length, Universitas: ekskul.filter(e => e.level === 'Universitas').length,
+                    Umum: ekskul.filter(e => e.level === 'Umum').length };
                 setTimeout(() => {
-                    new Chart(document.getElementById('ekskulChart'), { type: 'bar', data: { labels: Object.keys(ekskulDist), datasets: [{ label: 'Jumlah Ekskul', data: Object.values(ekskulDist), backgroundColor: '#fbbc04' }] } });
+                    new Chart(document.getElementById('ekskulChart'), { type: 'bar', data: { labels: Object.keys(
+                                ekskulDist), datasets: [{ label: 'Jumlah Ekskul', data: Object.values(
+                                ekskulDist), backgroundColor: '#fbbc04' }] }, options: { responsive: true,
+                            maintainAspectRatio: true } });
                 }, 100);
-                
+
                 tableContainer.innerHTML = `
                     <h3><i class="fas fa-futbol"></i> Data Ekstrakurikuler</h3>
                     <table>
@@ -692,60 +986,59 @@
                         <tbody>${ekskul.map(e => `<tr><td>${e.name}</td><td>${e.level}</td><td>${e.coach}</td><td>${e.schedule || '-'}</td></tr>`).join('')}</tbody>
                     </table>
                 `;
-            }
-            else if(type === 'fasilitas') {
-                chartsContainer.innerHTML = `<div class="chart-card"><h3><i class="fas fa-chart-pie"></i> Distribusi Fasilitas per Kategori</h3><canvas id="fasilitasChart"></canvas></div>`;
-                
-                const kategoriCount = { Laboratorium: 0, Olahraga: 0, Perpustakaan: 0, 'Ruang Kelas': 0, Aula: 0, Ibadah: 0, Lainnya: 0 };
-                fasilitas.forEach(f => { if(kategoriCount[f.kategori] !== undefined) kategoriCount[f.kategori]++; });
+            } else if (type === 'fasilitas') {
+                chartsContainer.innerHTML =
+                    `<div class="chart-card"><h3><i class="fas fa-chart-pie"></i> Distribusi Fasilitas per Kategori</h3><canvas id="fasilitasChart"></canvas></div>`;
+
+                const kategoriCount = { Laboratorium: 0, Olahraga: 0, Perpustakaan: 0, 'Ruang Kelas': 0, Aula: 0,
+                    Ibadah: 0, Lainnya: 0 };
+                fasilitas.forEach(f => { if (kategoriCount[f.kategori] !== undefined) kategoriCount[f.kategori]++; });
                 setTimeout(() => {
-                    new Chart(document.getElementById('fasilitasChart'), { type: 'pie', data: { labels: Object.keys(kategoriCount), datasets: [{ data: Object.values(kategoriCount), backgroundColor: ['#2a5298', '#34a853', '#ea4335', '#fbbc04', '#764ba2', '#667eea', '#94a3b8'] }] } });
+                    new Chart(document.getElementById('fasilitasChart'), { type: 'pie', data: { labels: Object.keys(
+                                kategoriCount), datasets: [{ data: Object.values(kategoriCount),
+                                backgroundColor: ['#2a5298', '#34a853', '#ea4335', '#fbbc04',
+                                    '#764ba2', '#667eea', '#94a3b8'
+                                ] }] }, options: { responsive: true,
+                            maintainAspectRatio: true } });
                 }, 100);
-                
+
                 tableContainer.innerHTML = `
                     <h3><i class="fas fa-building"></i> Data Fasilitas</h3>
                     <table><thead><tr><th>Nama Fasilitas</th><th>Unit</th><th>Kategori</th><th>Kapasitas</th></tr></thead>
                     <tbody>${fasilitas.map(f => `<tr><td>${f.name}</td><td>${f.level}</td><td>${f.kategori}</td><td>${f.capacity || '-'}</td></tr>`).join('')}</tbody></table>
                 `;
-            }
-            else if(type === 'alumni') {
+            } else if (type === 'alumni') {
                 let filteredAlumni = alumni;
-                if(yearFilter) filteredAlumni = alumni.filter(a => a.year == yearFilter);
-                
-                chartsContainer.innerHTML = `<div class="chart-card"><h3><i class="fas fa-chart-bar"></i> Jumlah Alumni per Tahun</h3><canvas id="alumniChart"></canvas></div>`;
-                
+                if (yearFilter) filteredAlumni = alumni.filter(a => a.year == yearFilter);
+
+                chartsContainer.innerHTML =
+                    `<div class="chart-card"><h3><i class="fas fa-chart-bar"></i> Jumlah Alumni per Tahun</h3><canvas id="alumniChart"></canvas></div>`;
+
                 const yearCount = {};
                 filteredAlumni.forEach(a => { yearCount[a.year] = (yearCount[a.year] || 0) + 1; });
                 setTimeout(() => {
-                    new Chart(document.getElementById('alumniChart'), { type: 'bar', data: { labels: Object.keys(yearCount), datasets: [{ label: 'Jumlah Alumni', data: Object.values(yearCount), backgroundColor: '#764ba2' }] } });
+                    new Chart(document.getElementById('alumniChart'), { type: 'bar', data: { labels: Object.keys(
+                                yearCount), datasets: [{ label: 'Jumlah Alumni', data: Object.values(
+                                yearCount), backgroundColor: '#764ba2' }] }, options: { responsive: true,
+                            maintainAspectRatio: true } });
                 }, 100);
-                
+
                 tableContainer.innerHTML = `
                     <h3><i class="fas fa-user-graduate"></i> Data Alumni</h3>
                     <table><thead><tr><th>Nama</th><th>Unit</th><th>Tahun Lulus</th><th>Pekerjaan</th></tr></thead>
                     <tbody>${filteredAlumni.map(a => `<tr><td>${a.name}</td><td>${a.level}</td><td>${a.year}</td><td>${a.job || '-'}</td></tr>`).join('')}</tbody></table>
                 `;
             }
+            updateStats();
         }
 
-        // Export to Excel (CSV)
+        // ========== EXPORT EXCEL (CSV) ==========
         document.getElementById('exportExcelBtn').onclick = () => {
             const type = document.getElementById('filterReport').value;
-            let headers = [], data = [];
-            
-            const typeMap = {
-                summary: ['Total Unit Sekolah', schools.length],
-                sekolah: ['Nama Sekolah', 'Jenjang', 'Akreditasi', 'Jumlah Guru', 'Jumlah Siswa'],
-                guru: ['Nama', 'Unit', 'Mata Pelajaran', 'Jabatan'],
-                siswa: ['Nama', 'Unit', 'Kelas/Prodi', 'Status'],
-                prestasi: ['Nama Prestasi', 'Pemenang', 'Unit', 'Tingkat', 'Tahun'],
-                ekskul: ['Nama Ekskul', 'Unit', 'Pembina', 'Jadwal'],
-                fasilitas: ['Nama Fasilitas', 'Unit', 'Kategori', 'Kapasitas'],
-                alumni: ['Nama', 'Unit', 'Tahun Lulus', 'Pekerjaan']
-            };
-            
-            if(type === 'summary') {
-                let csv = 'Indikator,Jumlah\n';
+            let csv = '';
+
+            if (type === 'summary') {
+                csv = 'Indikator,Jumlah\n';
                 csv += `Total Unit Sekolah,${schools.length}\n`;
                 csv += `Total Tenaga Pendidik,${teachers.length}\n`;
                 csv += `Total Peserta Didik,${students.length}\n`;
@@ -753,54 +1046,69 @@
                 csv += `Total Ekstrakurikuler,${ekskul.length}\n`;
                 csv += `Total Fasilitas,${fasilitas.length}\n`;
                 csv += `Total Alumni,${alumni.length}\n`;
-                downloadCSV(csv, `laporan_${type}_${new Date().toISOString().split('T')[0]}.csv`);
-                return;
-            }
-            
-            let csv = typeMap[type].join(',') + '\n';
-            if(type === 'sekolah') {
-                schools.forEach(s => { csv += `"${s.name}",${s.level},${s.accreditation},${teachers.filter(t => t.level === s.level).length},${students.filter(st => st.level === s.level).length}\n`; });
-            } else if(type === 'guru') {
+            } else if (type === 'sekolah') {
+                csv = 'Nama Sekolah,Jenjang,Akreditasi,Jumlah Guru,Jumlah Siswa\n';
+                schools.forEach(s => { csv +=
+                    `"${s.name}",${s.level},${s.accreditation},${teachers.filter(t => t.level === s.level).length},${students.filter(st => st.level === s.level).length}\n`
+                    ; });
+            } else if (type === 'guru') {
+                csv = 'Nama,Unit,Mata Pelajaran,Jabatan\n';
                 teachers.forEach(t => { csv += `"${t.name}",${t.level},${t.mapel || '-'},${t.position || 'Guru'}\n`; });
-            } else if(type === 'siswa') {
-                students.forEach(s => { csv += `"${s.name}",${s.level},${s.class || s.prodi || '-'},${s.status || 'Aktif'}\n`; });
-            } else if(type === 'prestasi') {
+            } else if (type === 'siswa') {
+                csv = 'Nama,Unit,Kelas/Prodi,Status\n';
+                students.forEach(s => { csv +=
+                    `"${s.name}",${s.level},${s.class || s.prodi || '-'},${s.status || 'Aktif'}\n`; });
+            } else if (type === 'prestasi') {
+                csv = 'Nama Prestasi,Pemenang,Unit,Tingkat,Tahun\n';
                 prestasi.forEach(p => { csv += `"${p.name}","${p.winner}",${p.level},${p.tingkat},${p.year}\n`; });
-            } else if(type === 'ekskul') {
+            } else if (type === 'ekskul') {
+                csv = 'Nama Ekskul,Unit,Pembina,Jadwal\n';
                 ekskul.forEach(e => { csv += `"${e.name}",${e.level},"${e.coach}",${e.schedule || '-'}\n`; });
-            } else if(type === 'fasilitas') {
+            } else if (type === 'fasilitas') {
+                csv = 'Nama Fasilitas,Unit,Kategori,Kapasitas\n';
                 fasilitas.forEach(f => { csv += `"${f.name}",${f.level},${f.kategori},${f.capacity || '-'}\n`; });
-            } else if(type === 'alumni') {
+            } else if (type === 'alumni') {
+                csv = 'Nama,Unit,Tahun Lulus,Pekerjaan\n';
                 alumni.forEach(a => { csv += `"${a.name}",${a.level},${a.year},${a.job || '-'}\n`; });
             }
-            
+
             downloadCSV(csv, `laporan_${type}_${new Date().toISOString().split('T')[0]}.csv`);
         };
-        
+
         function downloadCSV(csv, filename) {
-            const blob = new Blob([csv], { type: 'text/csv' });
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
             link.download = filename;
             link.click();
         }
 
-        // Print
+        // ========== PRINT & PDF ==========
         document.getElementById('printBtn').onclick = () => { window.print(); };
-        
-        // PDF
+
         document.getElementById('exportPdfBtn').onclick = () => {
             alert('📄 Untuk export PDF, gunakan menu Print > Save as PDF');
             window.print();
         };
 
+        // ========== EVENT LISTENERS ==========
         document.getElementById('filterReport').addEventListener('change', renderReport);
         document.getElementById('filterYear').addEventListener('change', renderReport);
-        
+
+        // ========== INIT ==========
         renderReport();
         updateStats();
 
-        // ==================== NAVIGASI STANDAR ====================
+        // ==================== NAVIGASI ====================
+        function getBasePath() {
+            if (window.location.pathname.includes('/pages/')) {
+                return '';
+            } else {
+                return 'pages/';
+            }
+        }
+        const basePath = getBasePath();
+
         document.querySelectorAll('.nav-item[data-page]').forEach(item => {
             item.addEventListener('click', () => {
                 const page = item.dataset.page;
@@ -821,12 +1129,14 @@
                     kontak: 'kontak.html',
                     laporan: 'laporan.html'
                 };
-                if(pages[page]) window.location.href = pages[page];
+                if (pages[page]) {
+                    window.location.href = basePath + pages[page];
+                }
             });
         });
 
         document.getElementById('logoutBtn').onclick = () => {
-            if(confirm('Yakin ingin logout?')) {
+            if (confirm('Yakin ingin logout?')) {
                 localStorage.removeItem('isLoggedIn');
                 window.location.href = '../index.html';
             }
@@ -835,6 +1145,14 @@
         document.getElementById('menuToggle').onclick = () => {
             document.getElementById('sidebar').classList.toggle('active');
         };
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
