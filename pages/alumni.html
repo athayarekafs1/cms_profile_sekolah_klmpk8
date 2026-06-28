@@ -178,6 +178,264 @@
         .btn-cancel { flex: 1; background: #f1f5f9; color: #475569; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; }
 
         input, select, textarea { font-size: 16px !important; }
+        /* ================================================================ */
+/* ========== KHUSUS TAMPILAN HP ========== */
+/* ================================================================ */
+
+/* HP ukuran sedang (max-width: 768px) */
+@media (max-width: 768px) {
+    /* Grid alumni jadi 2 kolom */
+    .alumni-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px !important;
+    }
+
+    /* Stats grid jadi 2 kolom */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 8px !important;
+    }
+
+    /* Card lebih kecil */
+    .stat-card {
+        padding: 10px 12px !important;
+    }
+    .stat-icon {
+        width: 32px !important;
+        height: 32px !important;
+        font-size: 12px !important;
+    }
+    .stat-info h3 {
+        font-size: 16px !important;
+    }
+    .stat-info p {
+        font-size: 10px !important;
+    }
+
+    /* Topbar jadi vertikal */
+    .topbar {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 12px 16px !important;
+        margin-top: 52px !important;
+        gap: 10px !important;
+    }
+    .page-title h1 {
+        font-size: 17px !important;
+    }
+    .page-title p {
+        font-size: 11px !important;
+    }
+    .btn-add {
+        width: 100% !important;
+        justify-content: center !important;
+        padding: 8px !important;
+        font-size: 12px !important;
+    }
+
+    /* Filter jadi vertikal */
+    .filter-section {
+        flex-direction: column !important;
+        align-items: stretch !important;
+        padding: 10px 12px !important;
+        gap: 8px !important;
+    }
+    .filter-group {
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+    .filter-select, .search-input {
+        width: 100% !important;
+        padding: 8px 10px !important;
+        font-size: 12px !important;
+    }
+
+    /* Alumni Card HP */
+    .alumni-card {
+        border-radius: 12px !important;
+    }
+    .alumni-header {
+        padding: 12px 8px 32px 8px !important;
+    }
+    .alumni-avatar {
+        width: 48px !important;
+        height: 48px !important;
+        font-size: 20px !important;
+    }
+    .alumni-name {
+        font-size: 12px !important;
+    }
+    .alumni-year-badge {
+        font-size: 8px !important;
+        padding: 2px 8px !important;
+        bottom: -8px !important;
+    }
+    .alumni-body {
+        padding: 10px 8px 8px !important;
+    }
+    .alumni-info-item {
+        font-size: 9px !important;
+        gap: 4px !important;
+        margin-bottom: 4px !important;
+    }
+    .alumni-info-item i {
+        font-size: 9px !important;
+        width: 12px !important;
+    }
+    .alumni-level-badge {
+        font-size: 8px !important;
+        padding: 1px 6px !important;
+    }
+    .alumni-testimoni {
+        font-size: 9px !important;
+        padding: 4px 6px !important;
+        max-height: 32px !important;
+        margin: 4px 0 !important;
+    }
+    .alumni-actions {
+        gap: 3px !important;
+        padding-top: 6px !important;
+        margin-top: 6px !important;
+    }
+    .action-btn {
+        font-size: 8px !important;
+        padding: 3px 4px !important;
+        border-radius: 4px !important;
+    }
+
+    /* Modal HP */
+    .modal-content {
+        padding: 16px !important;
+        margin: 10px !important;
+        border-radius: 16px !important;
+        max-height: 90vh !important;
+    }
+    .modal-header h2 {
+        font-size: 16px !important;
+    }
+    .form-row {
+        grid-template-columns: 1fr !important;
+        gap: 8px !important;
+    }
+    .form-group {
+        margin-bottom: 10px !important;
+    }
+    .form-group label {
+        font-size: 11px !important;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+        font-size: 14px !important;
+        padding: 8px 10px !important;
+        border-radius: 8px !important;
+    }
+    .modal-footer {
+        flex-direction: column !important;
+        gap: 6px !important;
+    }
+    .btn-submit, .btn-cancel {
+        padding: 8px !important;
+        font-size: 13px !important;
+        border-radius: 8px !important;
+    }
+
+    /* Tombol menu */
+    .menu-toggle {
+        top: 10px !important;
+        left: 10px !important;
+        padding: 8px 10px !important;
+        font-size: 14px !important;
+        border-radius: 8px !important;
+    }
+}
+
+/* ========== HP KECIL (max-width: 480px) ========== */
+@media (max-width: 480px) {
+    .alumni-grid {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 6px !important;
+    }
+    .stat-card {
+        padding: 8px 10px !important;
+    }
+    .stat-icon {
+        width: 28px !important;
+        height: 28px !important;
+        font-size: 10px !important;
+    }
+    .stat-info h3 {
+        font-size: 14px !important;
+    }
+    .stat-info p {
+        font-size: 9px !important;
+    }
+    .topbar {
+        margin-top: 44px !important;
+        padding: 10px 12px !important;
+    }
+    .page-title h1 {
+        font-size: 15px !important;
+    }
+    .page-title p {
+        font-size: 10px !important;
+    }
+    .btn-add {
+        font-size: 11px !important;
+        padding: 6px !important;
+    }
+    .alumni-avatar {
+        width: 52px !important;
+        height: 52px !important;
+        font-size: 22px !important;
+    }
+    .alumni-name {
+        font-size: 13px !important;
+    }
+    .alumni-testimoni {
+        font-size: 10px !important;
+        max-height: 38px !important;
+    }
+    .modal-content {
+        padding: 12px !important;
+    }
+    .menu-toggle {
+        top: 8px !important;
+        left: 8px !important;
+        padding: 6px 8px !important;
+        font-size: 12px !important;
+    }
+}
+
+/* ========== HP SANGAT KECIL (max-width: 360px) ========== */
+@media (max-width: 360px) {
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .topbar {
+        margin-top: 38px !important;
+        padding: 8px 10px !important;
+    }
+    .page-title h1 {
+        font-size: 13px !important;
+    }
+    .alumni-avatar {
+        width: 44px !important;
+        height: 44px !important;
+        font-size: 18px !important;
+    }
+    .alumni-name {
+        font-size: 11px !important;
+    }
+    .menu-toggle {
+        top: 6px !important;
+        left: 6px !important;
+        padding: 5px 7px !important;
+        font-size: 11px !important;
+    }
+}
     </style>
 </head>
 <body>
