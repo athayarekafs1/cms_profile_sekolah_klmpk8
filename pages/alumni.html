@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Alumni - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -10,6 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Inter', sans-serif; background: #f5f7fb; }
 
+        /* ==================== SIDEBAR ==================== */
         .sidebar {
             position: fixed; left: 0; top: 0; width: 280px; height: 100%;
             background: linear-gradient(180deg, #1a2a4f 0%, #0f1a2e 100%);
@@ -35,18 +36,22 @@
         .nav-item span { font-size: 14px; font-weight: 500; }
         .menu-toggle {
             display: none; position: fixed; top: 20px; left: 20px; z-index: 1001;
-            background: #1a2a4f; color: white; border: none; padding: 12px; border-radius: 12px; cursor: pointer;
+            background: #1a2a4f; color: white; border: none; padding: 14px 16px;
+            border-radius: 12px; cursor: pointer; font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 1024px) {
             .sidebar { left: -280px; }
-            .sidebar.active { left: 0; }
-            .main-content { margin-left: 0; padding: 20px; }
+            .sidebar.active { left: 0; box-shadow: 4px 0 30px rgba(0,0,0,0.3); }
+            .main-content { margin-left: 0; padding: 16px; }
             .menu-toggle { display: block; }
         }
 
+        /* ==================== MAIN CONTENT ==================== */
         .main-content { margin-left: 280px; padding: 24px 32px; transition: all 0.3s; }
 
+        /* Topbar */
         .topbar {
             background: white; border-radius: 20px; padding: 20px 28px; margin-bottom: 28px;
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
@@ -54,7 +59,6 @@
         }
         .page-title h1 { font-size: 24px; font-weight: 700; color: #1a2a4f; }
         .page-title p { font-size: 13px; color: #6c757d; margin-top: 4px; }
-
         .btn-add {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white; border: none; padding: 10px 20px; border-radius: 12px;
@@ -63,8 +67,9 @@
         }
         .btn-add:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102,126,234,0.3); }
 
+        /* Stats */
         .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 24px;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;
         }
         .stat-card {
             background: white; border-radius: 16px; padding: 14px 16px;
@@ -75,6 +80,7 @@
         .stat-info h3 { font-size: 22px; font-weight: 700; color: #1a2a4f; }
         .stat-info p { font-size: 11px; color: #6c757d; margin-top: 2px; }
 
+        /* Filter */
         .filter-section {
             background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 20px;
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
@@ -87,12 +93,48 @@
         }
         .search-input { width: 220px; }
 
+        /* ========== ALUMNI GRID ========== */
         .alumni-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
         }
-        @media (max-width: 768px) { .alumni-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
-        @media (max-width: 480px) { .alumni-grid { grid-template-columns: 1fr; gap: 14px; } }
 
+        /* RESPONSIVE */
+        @media (max-width: 1400px) { .alumni-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 1100px) { .alumni-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { 
+            .alumni-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .topbar { flex-direction: column; align-items: stretch; gap: 12px; padding: 14px 18px; margin-top: 56px; }
+            .btn-add { width: 100%; justify-content: center; }
+            .filter-section { flex-direction: column; align-items: stretch; gap: 10px; }
+            .filter-group { flex-direction: column; gap: 8px; }
+            .filter-select, .search-input { width: 100% !important; }
+            .page-title h1 { font-size: 18px; }
+            .page-title p { font-size: 11px; }
+        }
+        @media (max-width: 480px) { 
+            .alumni-grid { grid-template-columns: 1fr; gap: 14px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .stat-card { padding: 10px 12px; }
+            .stat-icon { width: 32px; height: 32px; font-size: 12px; }
+            .stat-info h3 { font-size: 16px; }
+            .stat-info p { font-size: 10px; }
+            .topbar { margin-top: 46px; padding: 10px 14px; }
+            .page-title h1 { font-size: 16px; }
+            .btn-add { padding: 8px; font-size: 12px; }
+            .menu-toggle { top: 12px; left: 12px; padding: 10px 12px; font-size: 16px; }
+        }
+        @media (max-width: 360px) { 
+            .alumni-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .menu-toggle { top: 8px; left: 8px; padding: 8px 10px; font-size: 14px; }
+            .topbar { margin-top: 40px; padding: 8px 10px; }
+            .page-title h1 { font-size: 14px; }
+        }
+
+        /* Alumni Card */
         .alumni-card {
             background: white; border-radius: 16px; overflow: hidden;
             transition: all 0.3s; border: 1px solid #f0f2f5; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
@@ -140,6 +182,7 @@
         .btn-edit { background: #fef3c7; color: #92400e; }
         .btn-delete { background: #fee2e2; color: #b91c1c; }
 
+        /* Modal */
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 2000;
@@ -148,7 +191,9 @@
         .modal-content {
             background: white; border-radius: 24px; padding: 28px;
             max-width: 500px; width: 90%; max-height: 85vh; overflow-y: auto;
+            animation: modalFadeIn 0.3s ease;
         }
+        @keyframes modalFadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
         .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
         .modal-header h2 { font-size: 20px; font-weight: 700; color: #1a2a4f; }
         .modal-close { background: none; border: none; font-size: 24px; cursor: pointer; color: #94a3b8; }
@@ -171,11 +216,29 @@
 
         .empty-state { text-align: center; padding: 40px; color: #94a3b8; grid-column: 1 / -1; }
         .empty-state i { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+
+        @media (max-width: 768px) {
+            .modal-content { padding: 20px; margin: 12px; max-height: 90vh; }
+            .modal-header h2 { font-size: 17px; }
+            .form-row { grid-template-columns: 1fr; gap: 10px; }
+            .form-group { margin-bottom: 12px; }
+            .form-group input, .form-group select, .form-group textarea { font-size: 14px; padding: 8px 10px; }
+            .modal-footer { flex-direction: column; gap: 8px; }
+            .btn-submit, .btn-cancel { padding: 10px; }
+        }
+        @media (max-width: 480px) {
+            .modal-content { padding: 16px; border-radius: 18px; }
+            .modal-header h2 { font-size: 16px; }
+            .image-preview { width: 56px; height: 56px; }
+        }
+
+        input, select, textarea { font-size: 16px !important; }
     </style>
 </head>
 <body>
     <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
 
+    <!-- SIDEBAR -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-header">
             <div class="logo-icon-small"><i class="fas fa-landmark" style="font-size: 24px;"></i></div>
@@ -202,6 +265,7 @@
         </div>
     </div>
 
+    <!-- MAIN CONTENT -->
     <div class="main-content">
         <div class="topbar">
             <div class="page-title">
