@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Fasilitas - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,9 +106,11 @@
             background: #1a2a4f;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 14px 16px;
             border-radius: 12px;
             cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 1024px) {
@@ -117,10 +119,11 @@
             }
             .sidebar.active {
                 left: 0;
+                box-shadow: 4px 0 30px rgba(0,0,0,0.3);
             }
             .main-content {
                 margin-left: 0;
-                padding: 20px;
+                padding: 16px;
             }
             .menu-toggle {
                 display: block;
@@ -269,11 +272,23 @@
             width: 260px;
         }
 
-        /* Cards Grid */
+        /* Cards Grid - 3 KOLOM */
         .fasilitas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
+        }
+
+        @media (max-width: 1200px) {
+            .fasilitas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .fasilitas-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .fasilitas-card {
@@ -293,7 +308,6 @@
             box-shadow: 0 20px 25px -12px rgba(0,0,0,0.15);
         }
 
-        /* Container Gambar */
         .fasilitas-image-container {
             position: relative;
             height: 180px;
@@ -319,7 +333,6 @@
             font-size: 48px;
         }
 
-        /* Kategori Badge */
         .fasilitas-kategori {
             position: absolute;
             bottom: 12px;
@@ -348,7 +361,6 @@
             z-index: 5;
         }
 
-        /* Konten Card */
         .fasilitas-content {
             padding: 20px;
             flex: 1;
@@ -387,24 +399,27 @@
             margin-top: 12px;
             padding-top: 12px;
             border-top: 1px solid #f1f5f9;
+            flex: 1;
         }
 
         .fasilitas-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-top: 16px;
             padding-top: 16px;
             border-top: 1px solid #f1f5f9;
         }
 
         .action-btn {
-            padding: 6px 14px;
+            padding: 6px 12px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 12px;
             font-weight: 500;
             transition: all 0.2s;
+            flex: 1;
+            text-align: center;
         }
 
         .btn-view { background: #e0e7ff; color: #4338ca; }
@@ -569,20 +584,206 @@
             display: inline-block;
         }
 
-        @media (max-width: 640px) {
-            .fasilitas-grid {
-                grid-template-columns: 1fr;
+        /* ================================================================ */
+        /* ========== TAMBAHAN RESPONSIVE UNTUK HP ========== */
+        /* ================================================================ */
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 16px;
+                margin-left: 0;
             }
-            .form-row {
-                grid-template-columns: 1fr;
+            .topbar {
+                padding: 14px 18px;
+                margin-top: 56px;
+            }
+            .page-title h1 {
+                font-size: 20px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .stat-card {
+                padding: 14px 16px;
+            }
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .stat-info h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 14px 16px;
+                margin-top: 56px;
+            }
+            .btn-add {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 12px 14px;
+            }
+            .stat-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
+            .stat-info p {
+                font-size: 10px;
             }
             .filter-section {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 10px;
+                padding: 12px 14px;
             }
+            .filter-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .filter-select,
             .search-input {
-                width: 100%;
+                width: 100% !important;
+                padding: 10px 14px;
+                font-size: 13px;
             }
+            .fasilitas-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .fasilitas-image-container {
+                height: 160px;
+            }
+            .fasilitas-content {
+                padding: 16px;
+            }
+            .fasilitas-name {
+                font-size: 16px;
+            }
+            .fasilitas-detail {
+                font-size: 12px;
+                gap: 8px;
+            }
+            .modal-content {
+                padding: 20px;
+                margin: 12px;
+                max-height: 90vh;
+            }
+            .modal-header h2 {
+                font-size: 17px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .form-group {
+                margin-bottom: 12px;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+            .modal-footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .btn-submit,
+            .btn-cancel {
+                padding: 12px;
+            }
+            .action-btn {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 10px 12px;
+            }
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .stat-info h3 {
+                font-size: 16px;
+            }
+            .stat-info p {
+                font-size: 10px;
+            }
+            .page-title h1 {
+                font-size: 18px;
+            }
+            .page-title p {
+                font-size: 12px;
+            }
+            .menu-toggle {
+                top: 12px;
+                left: 12px;
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+            .modal-content {
+                padding: 16px;
+                border-radius: 18px;
+            }
+            .fasilitas-image-container {
+                height: 140px;
+            }
+            .fasilitas-name {
+                font-size: 15px;
+            }
+            .fasilitas-detail {
+                font-size: 11px;
+            }
+            .fasilitas-desc {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-card {
+                padding: 10px 14px;
+            }
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
+        }
+
+        /* Mencegah zoom otomatis di input pada mobile */
+        input, select, textarea {
+            font-size: 16px !important;
         }
     </style>
 </head>
@@ -755,17 +956,42 @@
     <script>
         if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        let fasilitas = JSON.parse(localStorage.getItem('fasilitas')) || [
-            {id:1, name:'Laboratorium Komputer', level:'SMA', kategori:'Laboratorium', capacity:'40 unit komputer', location:'Gedung Utama Lantai 2', desc:'Lab komputer dengan spesifikasi tinggi untuk praktik编程', image:''},
-            {id:2, name:'Perpustakaan Digital', level:'Universitas', kategori:'Perpustakaan', capacity:'200 orang', location:'Gedung Perpustakaan Lt 1-3', desc:'Perpustakaan dengan koleksi 5000+ buku digital dan 2000+ buku fisik', image:''},
-            {id:3, name:'Lapangan Futsal', level:'Umum', kategori:'Olahraga', capacity:'2 tim', location:'Area Belakang Kampus', desc:'Lapangan futsal standar nasional dengan rumput sintetis', image:''},
-            {id:4, name:'Ruang Kelas Interaktif', level:'SD', kategori:'Ruang Kelas', capacity:'30 siswa', location:'Gedung A Lantai 1', desc:'Dilengkapi smart board, AC, dan fasilitas multimedia', image:''},
-            {id:5, name:'Aula Serbaguna', level:'Umum', kategori:'Aula', capacity:'500 orang', location:'Gedung Serbaguna', desc:'Aula untuk acara seminar, pentas seni, dan kegiatan besar', image:''},
-            {id:6, name:'Laboratorium IPA', level:'SMP', kategori:'Laboratorium', capacity:'36 siswa', location:'Gedung B Lantai 2', desc:'Lab IPA dengan alat praktikum lengkap', image:''},
-            {id:7, name:'Musholla', level:'Umum', kategori:'Ibadah', capacity:'100 jamaah', location:'Area Tengah Kampus', desc:'Musholla dengan fasilitas wudhu yang nyaman', image:''},
+        // ========== FUNGSI UNTUK MEMBACA DATA DARI LOCALSTORAGE ==========
+        function getData(key, defaultData) {
+            const data = localStorage.getItem(key);
+            if (data) {
+                try {
+                    return JSON.parse(data);
+                } catch (e) {
+                    return defaultData;
+                }
+            } else {
+                localStorage.setItem(key, JSON.stringify(defaultData));
+                return defaultData;
+            }
+        }
+
+        function saveData(key, data) {
+            localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        // ========== DATA DEFAULT ==========
+        const defaultFasilitas = [
+            {id:1, name:'Laboratorium Komputer', level:'SMA', id_sekolah:4, kategori:'Laboratorium', capacity:'40 unit komputer', location:'Gedung Utama Lantai 2', desc:'Lab komputer dengan spesifikasi tinggi untuk praktik programming', image:''},
+            {id:2, name:'Perpustakaan Digital', level:'Universitas', id_sekolah:5, kategori:'Perpustakaan', capacity:'200 orang', location:'Gedung Perpustakaan Lt 1-3', desc:'Perpustakaan dengan koleksi 5000+ buku digital dan 2000+ buku fisik', image:''},
+            {id:3, name:'Lapangan Futsal', level:'Umum', id_sekolah:0, kategori:'Olahraga', capacity:'2 tim', location:'Area Belakang Kampus', desc:'Lapangan futsal standar nasional dengan rumput sintetis', image:''},
+            {id:4, name:'Ruang Kelas Interaktif', level:'SD', id_sekolah:2, kategori:'Ruang Kelas', capacity:'30 siswa', location:'Gedung A Lantai 1', desc:'Dilengkapi smart board, AC, dan fasilitas multimedia', image:''},
+            {id:5, name:'Aula Serbaguna', level:'Umum', id_sekolah:0, kategori:'Aula', capacity:'500 orang', location:'Gedung Serbaguna', desc:'Aula untuk acara seminar, pentas seni, dan kegiatan besar', image:''},
+            {id:6, name:'Laboratorium IPA', level:'SMP', id_sekolah:3, kategori:'Laboratorium', capacity:'36 siswa', location:'Gedung B Lantai 2', desc:'Lab IPA dengan alat praktikum lengkap', image:''},
+            {id:7, name:'Musholla', level:'Umum', id_sekolah:0, kategori:'Ibadah', capacity:'100 jamaah', location:'Area Tengah Kampus', desc:'Musholla dengan fasilitas wudhu yang nyaman', image:''},
         ];
 
-        function saveToLocalStorage() { localStorage.setItem('fasilitas', JSON.stringify(fasilitas)); }
+        // ========== LOAD DATA ==========
+        let fasilitas = getData('fasilitas', defaultFasilitas);
+
+        function saveToLocalStorage() {
+            saveData('fasilitas', fasilitas);
+        }
 
         function getKategoriIcon(kategori) {
             const map = {
@@ -825,6 +1051,9 @@
         });
 
         function renderFasilitas() {
+            // ========== RELOAD DATA TERBARU DARI LOCALSTORAGE ==========
+            fasilitas = getData('fasilitas', defaultFasilitas);
+
             const filterLevel = document.getElementById('filterLevel').value;
             const filterKategori = document.getElementById('filterKategori').value;
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -876,6 +1105,7 @@
 
         // View Detail
         window.viewFasilitas = (id) => {
+            fasilitas = getData('fasilitas', defaultFasilitas);
             const item = fasilitas.find(f => f.id === id);
             if(item) {
                 let detailHtml = `
@@ -956,12 +1186,17 @@
 
             if(!name) return alert('⚠️ Nama fasilitas harus diisi!');
 
+            // Cari id_sekolah dari level
+            const schools = getData('schools', []);
+            const school = schools.find(s => s.level === level);
+            const id_sekolah = school ? school.id : (level === 'Umum' ? 0 : null);
+
             if(id) {
                 const index = fasilitas.findIndex(f => f.id == id);
-                if(index !== -1) fasilitas[index] = {id: parseInt(id), name, level, kategori, capacity, location, desc, image};
+                if(index !== -1) fasilitas[index] = {id: parseInt(id), name, level, id_sekolah, kategori, capacity, location, desc, image};
             } else {
                 const newId = Math.max(...fasilitas.map(f => f.id), 0) + 1;
-                fasilitas.push({id:newId, name, level, kategori, capacity, location, desc, image});
+                fasilitas.push({id:newId, name, level, id_sekolah, kategori, capacity, location, desc, image});
             }
             saveToLocalStorage();
             renderFasilitas();
@@ -969,6 +1204,7 @@
         };
 
         window.editFasilitas = (id) => {
+            fasilitas = getData('fasilitas', defaultFasilitas);
             const item = fasilitas.find(f => f.id === id);
             if(item) {
                 document.getElementById('modalTitle').innerHTML = '<i class="fas fa-edit"></i> Edit Fasilitas';
@@ -1000,7 +1236,16 @@
         document.getElementById('searchInput').addEventListener('input', renderFasilitas);
         renderFasilitas();
 
-        // ==================== NAVIGASI STANDAR ====================
+        // ==================== NAVIGASI ====================
+        function getBasePath() {
+            if (window.location.pathname.includes('/pages/')) {
+                return '';
+            } else {
+                return 'pages/';
+            }
+        }
+        const basePath = getBasePath();
+
         document.querySelectorAll('.nav-item[data-page]').forEach(item => {
             item.addEventListener('click', () => {
                 const page = item.dataset.page;
@@ -1021,7 +1266,9 @@
                     kontak: 'kontak.html',
                     laporan: 'laporan.html'
                 };
-                if(pages[page]) window.location.href = pages[page];
+                if(pages[page]) {
+                    window.location.href = basePath + pages[page];
+                }
             });
         });
 
@@ -1035,6 +1282,14 @@
         document.getElementById('menuToggle').onclick = () => {
             document.getElementById('sidebar').classList.toggle('active');
         };
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
 
         window.onclick = function(event) {
             if (event.target === modal) modal.style.display = 'none';
