@@ -106,14 +106,13 @@
             background: #1a2a4f;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 14px 16px;
             border-radius: 12px;
             cursor: pointer;
             font-size: 18px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
-        /* ==================== RESPONSIVE SIDEBAR ==================== */
         @media (max-width: 1024px) {
             .sidebar {
                 left: -280px;
@@ -723,7 +722,6 @@
             font-size: 16px !important;
         }
 
-        /* Scrollbar table */
         .table-wrapper::-webkit-scrollbar {
             height: 4px;
         }
@@ -949,8 +947,27 @@
     <script>
         if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        // Data Sekolah
-        let schools = JSON.parse(localStorage.getItem('schools')) || [
+        // ========== FUNGSI UNTUK MEMBACA DATA DARI LOCALSTORAGE ==========
+        function getData(key, defaultData) {
+            const data = localStorage.getItem(key);
+            if (data) {
+                try {
+                    return JSON.parse(data);
+                } catch (e) {
+                    return defaultData;
+                }
+            } else {
+                localStorage.setItem(key, JSON.stringify(defaultData));
+                return defaultData;
+            }
+        }
+
+        function saveData(key, data) {
+            localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        // ========== DATA DEFAULT ==========
+        const defaultSchools = [
             {id:1, name:'TK Nusantara Ceria', level:'TK', address:'Jl. Pendidikan No.1, Jakarta', accreditation:'A', status:'Swasta', principal:'Hj. Fatimah Azzahra, S.Pd', phone:'(021) 1234561', email:'tk@nusantara.sch.id', website:'www.tk-nusantara.sch.id', logo:'', siswa:0, guru:0},
             {id:2, name:'SD Nusantara Unggul', level:'SD', address:'Jl. Pendidikan No.2, Jakarta', accreditation:'A', status:'Negeri', principal:'Drs. Ahmad Rizal, M.Pd', phone:'(021) 1234562', email:'sd@nusantara.sch.id', website:'www.sd-nusantara.sch.id', logo:'', siswa:0, guru:0},
             {id:3, name:'SMP Nusantara Gemilang', level:'SMP', address:'Jl. Pendidikan No.3, Jakarta', accreditation:'A', status:'Swasta', principal:'M. Irfan, S.Pd, M.Pd', phone:'(021) 1234563', email:'smp@nusantara.sch.id', website:'www.smp-nusantara.sch.id', logo:'', siswa:0, guru:0},
@@ -958,23 +975,45 @@
             {id:5, name:'Universitas Nusantara Digital', level:'Kuliah', address:'Jl. Teknologi No.10, Jakarta', accreditation:'B', status:'Swasta', principal:'Prof. Dr. Budi Santoso, M.Kom', phone:'(021) 1234565', email:'info@unida.ac.id', website:'www.unida.ac.id', logo:'', siswa:0, guru:0, facultyCount:3, prodiCount:7}
         ];
 
-        // Data pendukung
-        let teachers = JSON.parse(localStorage.getItem('teachers')) || [];
-        let students = JSON.parse(localStorage.getItem('students')) || [];
-        let fasilitas = JSON.parse(localStorage.getItem('fasilitas')) || [];
-        let prestasi = JSON.parse(localStorage.getItem('prestasi')) || [];
+        const defaultTeachers = [
+            {id:1, name:'Umi Kalsum, S.Pd.I', nip:'12345', level:'TK', id_sekolah:1, mapel:'Agama, Seni', position:'Guru Tetap', phone:'0812-3456-7894', email:'umi@tk.sch.id', address:'Jl. Merpati No.5', photo:''},
+            {id:2, name:'Hj. Fatimah Azzahra, S.Pd', nip:'12346', level:'TK', id_sekolah:1, mapel:'Bahasa Indonesia', position:'Kepala Sekolah', phone:'0812-3456-7899', email:'fatimah@tk.sch.id', address:'Jl. Mawar No.8', photo:''},
+            {id:3, name:'Siti Aminah, S.Pd', nip:'12347', level:'SD', id_sekolah:2, mapel:'Bahasa Indonesia', position:'Guru Tetap', phone:'0812-3456-7891', email:'siti@sd.sch.id', address:'Jl. Kenanga No.10', photo:''},
+            {id:4, name:'Drs. Budi Santoso', nip:'12348', level:'SMP', id_sekolah:3, mapel:'IPA', position:'Guru Tetap', phone:'0812-3456-7892', email:'budi@smp.sch.id', address:'Jl. Melati No.15', photo:''},
+            {id:5, name:'Dr. Ahmad Fauzi, M.Pd', nip:'12349', level:'SMA', id_sekolah:4, mapel:'Matematika', position:'Kepala Sekolah', phone:'0812-3456-7890', email:'ahmad@sma.sch.id', address:'Jl. Merdeka No.20', photo:''},
+            {id:6, name:'Prof. Dr. Budi Santoso, M.Kom', nip:'12350', level:'Kuliah', id_sekolah:5, mapel:null, position:'Dekan', phone:'0812-3456-7901', email:'budi@unida.ac.id', address:'Jl. Teknologi No.10', photo:'', faculty:'Fakultas Teknik & Informatika', prodi:'Teknik Informatika (S1)', matkul:'Pemrograman Web, Basis Data'}
+        ];
 
-        function saveToLocalStorage() { localStorage.setItem('schools', JSON.stringify(schools)); }
+        const defaultStudents = [
+            {id:1, name:'Ahmad Rizki', nisn:'123456', level:'TK', id_sekolah:1, class:'TK B', status:'Aktif'},
+            {id:2, name:'Siti Nurhaliza', nisn:'123457', level:'SD', id_sekolah:2, class:'5A', status:'Aktif'},
+            {id:3, name:'Budi Santoso', nisn:'123458', level:'SD', id_sekolah:2, class:'4B', status:'Aktif'},
+            {id:4, name:'Dewi Anggraeni', nisn:'123459', level:'SMP', id_sekolah:3, class:'2A', status:'Aktif'},
+            {id:5, name:'Fathia Zahra', nisn:'123460', level:'SMA', id_sekolah:4, class:'XI IPA 1', status:'Aktif'},
+            {id:6, name:'Hanna Marpaung', nisn:'123461', level:'Kuliah', id_sekolah:5, prodi:'Teknik Informatika', status:'Aktif'}
+        ];
 
-        function getBadgeClass(level) {
-            const map = {TK:'badge-tk', SD:'badge-sd', SMP:'badge-smp', SMA:'badge-sma', Kuliah:'badge-kuliah'};
-            return map[level] || 'badge-tk';
-        }
+        const defaultFasilitas = [
+            {id:1, name:'Ruang Kelas', level:'Umum', jumlah:10, status:'Tersedia'},
+            {id:2, name:'Laboratorium IPA', level:'SMP', jumlah:2, status:'Tersedia'},
+            {id:3, name:'Laboratorium Komputer', level:'SMA', jumlah:3, status:'Tersedia'}
+        ];
 
-        function getAccreditationBadge(acc) {
-            if(acc === 'A') return 'badge-a';
-            if(acc === 'B') return 'badge-b';
-            return 'badge-c';
+        const defaultPrestasi = [
+            {id:1, name:'Olimpiade Sains', level:'SMA', tingkat:'Nasional', year:2024},
+            {id:2, name:'Lomba Mewarnai', level:'TK', tingkat:'Provinsi', year:2024}
+        ];
+
+        // ========== LOAD DATA ==========
+        let schools = getData('schools', defaultSchools);
+        let teachers = getData('teachers', defaultTeachers);
+        let students = getData('students', defaultStudents);
+        let fasilitas = getData('fasilitas', defaultFasilitas);
+        let prestasi = getData('prestasi', defaultPrestasi);
+
+        // ========== FUNGSI SAVE ==========
+        function saveSchools() {
+            saveData('schools', schools);
         }
 
         function updateStats() {
@@ -1001,6 +1040,17 @@
                     <div class="stat-info"><h3>${swasta}</h3><p>Swasta</p></div>
                 </div>
             `;
+        }
+
+        function getBadgeClass(level) {
+            const map = {TK:'badge-tk', SD:'badge-sd', SMP:'badge-smp', SMA:'badge-sma', Kuliah:'badge-kuliah'};
+            return map[level] || 'badge-tk';
+        }
+
+        function getAccreditationBadge(acc) {
+            if(acc === 'A') return 'badge-a';
+            if(acc === 'B') return 'badge-b';
+            return 'badge-c';
         }
 
         // Toggle form fields based on level
@@ -1032,6 +1082,13 @@
             const filterAkreditasi = document.getElementById('filterAkreditasi').value;
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             
+            // ========== RELOAD DATA TERBARU DARI LOCALSTORAGE ==========
+            schools = getData('schools', defaultSchools);
+            teachers = getData('teachers', defaultTeachers);
+            students = getData('students', defaultStudents);
+            fasilitas = getData('fasilitas', defaultFasilitas);
+            prestasi = getData('prestasi', defaultPrestasi);
+            
             let filtered = schools;
             if(filterJenjang) filtered = filtered.filter(s => s.level === filterJenjang);
             if(filterAkreditasi) filtered = filtered.filter(s => s.accreditation === filterAkreditasi);
@@ -1047,10 +1104,11 @@
             }
             
             filtered.forEach(school => {
-                const siswaCount = students.filter(s => s.level === school.level).length;
-                const guruCount = teachers.filter(t => t.level === school.level).length;
-                const fasilitasCount = fasilitas.filter(f => f.level === school.level || f.level === 'Umum').length;
-                const prestasiCount = prestasi.filter(p => p.level === school.level).length;
+                // ========== HITUNG MENGGUNAKAN id_sekolah ==========
+                const siswaCount = students.filter(s => s.id_sekolah === school.id).length;
+                const guruCount = teachers.filter(t => t.id_sekolah === school.id).length;
+                const fasilitasCount = fasilitas.filter(f => f.id_sekolah === school.id || f.level === 'Umum').length;
+                const prestasiCount = prestasi.filter(p => p.id_sekolah === school.id).length;
                 
                 const row = tbody.insertRow();
                 row.insertCell(0).innerHTML = school.logo ? 
@@ -1077,12 +1135,18 @@
 
         // View Detail
         window.viewSchool = (id) => {
+            schools = getData('schools', defaultSchools);
+            teachers = getData('teachers', defaultTeachers);
+            students = getData('students', defaultStudents);
+            fasilitas = getData('fasilitas', defaultFasilitas);
+            prestasi = getData('prestasi', defaultPrestasi);
+            
             const school = schools.find(s => s.id === id);
             if(school) {
-                const siswaCount = students.filter(s => s.level === school.level).length;
-                const guruCount = teachers.filter(t => t.level === school.level).length;
-                const fasilitasCount = fasilitas.filter(f => f.level === school.level || f.level === 'Umum').length;
-                const prestasiCount = prestasi.filter(p => p.level === school.level).length;
+                const siswaCount = students.filter(s => s.id_sekolah === school.id).length;
+                const guruCount = teachers.filter(t => t.id_sekolah === school.id).length;
+                const fasilitasCount = fasilitas.filter(f => f.id_sekolah === school.id || f.level === 'Umum').length;
+                const prestasiCount = prestasi.filter(p => p.id_sekolah === school.id).length;
                 
                 let detailHtml = `
                     <div class="detail-card" style="display:flex; gap:20px; margin-bottom:20px;">
@@ -1165,7 +1229,7 @@
 
             if(!name || !address) return alert('⚠️ Nama Sekolah dan Alamat harus diisi!');
 
-            let schoolData = {name, level, address, accreditation, status, principal, phone, email, website, logo};
+            let schoolData = {id, name, level, address, accreditation, status, principal, phone, email, website, logo};
 
             if(level === 'Kuliah') {
                 schoolData.facultyCount = parseInt(document.getElementById('facultyCount').value) || 3;
@@ -1177,14 +1241,16 @@
                 if(index !== -1) schools[index] = {...schools[index], ...schoolData};
             } else {
                 const newId = Math.max(...schools.map(s => s.id), 0) + 1;
-                schools.push({id:newId, ...schoolData});
+                schoolData.id = newId;
+                schools.push(schoolData);
             }
-            saveToLocalStorage();
+            saveSchools();
             renderTable();
             modal.style.display = 'none';
         };
 
         window.editSchool = (id) => {
+            schools = getData('schools', defaultSchools);
             const school = schools.find(s => s.id === id);
             if(school) {
                 document.getElementById('modalTitle').innerHTML = '<i class="fas fa-edit"></i> Edit Sekolah';
@@ -1218,7 +1284,7 @@
         window.deleteSchool = (id) => {
             if(confirm('⚠️ Yakin ingin menghapus sekolah ini?')) {
                 schools = schools.filter(s => s.id !== id);
-                saveToLocalStorage();
+                saveSchools();
                 renderTable();
             }
         };
@@ -1275,7 +1341,6 @@
             document.getElementById('sidebar').classList.toggle('active');
         };
 
-        // Tutup sidebar saat klik di luar
         document.addEventListener('click', function(event) {
             const sidebar = document.getElementById('sidebar');
             const toggle = document.getElementById('menuToggle');
