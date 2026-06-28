@@ -51,7 +51,6 @@
         /* ==================== MAIN CONTENT ==================== */
         .main-content { margin-left: 280px; padding: 24px 32px; transition: all 0.3s; }
 
-        /* Topbar */
         .topbar {
             background: white; border-radius: 20px; padding: 20px 28px; margin-bottom: 28px;
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
@@ -67,7 +66,6 @@
         }
         .btn-add:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102,126,234,0.3); }
 
-        /* Stats */
         .stats-grid {
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;
         }
@@ -80,7 +78,6 @@
         .stat-info h3 { font-size: 22px; font-weight: 700; color: #1a2a4f; }
         .stat-info p { font-size: 11px; color: #6c757d; margin-top: 2px; }
 
-        /* Filter */
         .filter-section {
             background: white; border-radius: 14px; padding: 12px 16px; margin-bottom: 20px;
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
@@ -100,17 +97,16 @@
             gap: 16px;
         }
 
-        /* RESPONSIVE */
         @media (max-width: 1400px) { .alumni-grid { grid-template-columns: repeat(4, 1fr); } }
         @media (max-width: 1100px) { .alumni-grid { grid-template-columns: repeat(3, 1fr); } }
         @media (max-width: 768px) { 
             .alumni-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
             .topbar { flex-direction: column; align-items: stretch; gap: 12px; padding: 14px 18px; margin-top: 56px; }
-            .btn-add { width: 100%; justify-content: center; }
+            .btn-add { width: 100%; justify-content: center; padding: 10px; }
             .filter-section { flex-direction: column; align-items: stretch; gap: 10px; }
             .filter-group { flex-direction: column; gap: 8px; }
-            .filter-select, .search-input { width: 100% !important; }
+            .filter-select, .search-input { width: 100% !important; padding: 8px 12px; }
             .page-title h1 { font-size: 18px; }
             .page-title p { font-size: 11px; }
         }
@@ -125,6 +121,10 @@
             .page-title h1 { font-size: 16px; }
             .btn-add { padding: 8px; font-size: 12px; }
             .menu-toggle { top: 12px; left: 12px; padding: 10px 12px; font-size: 16px; }
+            .modal-content { padding: 16px; border-radius: 18px; }
+            .modal-header h2 { font-size: 16px; }
+            .form-row { grid-template-columns: 1fr; gap: 10px; }
+            .modal-footer { flex-direction: column; gap: 8px; }
         }
         @media (max-width: 360px) { 
             .alumni-grid { grid-template-columns: 1fr; }
@@ -134,7 +134,7 @@
             .page-title h1 { font-size: 14px; }
         }
 
-        /* Alumni Card */
+        /* ========== ALUMNI CARD ========== */
         .alumni-card {
             background: white; border-radius: 16px; overflow: hidden;
             transition: all 0.3s; border: 1px solid #f0f2f5; box-shadow: 0 1px 3px rgba(0,0,0,0.04);
@@ -182,7 +182,10 @@
         .btn-edit { background: #fef3c7; color: #92400e; }
         .btn-delete { background: #fee2e2; color: #b91c1c; }
 
-        /* Modal */
+        .empty-state { text-align: center; padding: 40px; color: #94a3b8; grid-column: 1 / -1; }
+        .empty-state i { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
+
+        /* ========== MODAL ========== */
         .modal {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); z-index: 2000;
@@ -213,24 +216,6 @@
         .modal-footer { display: flex; gap: 12px; margin-top: 20px; }
         .btn-submit { flex: 1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; }
         .btn-cancel { flex: 1; background: #f1f5f9; color: #475569; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; }
-
-        .empty-state { text-align: center; padding: 40px; color: #94a3b8; grid-column: 1 / -1; }
-        .empty-state i { font-size: 48px; margin-bottom: 12px; opacity: 0.5; }
-
-        @media (max-width: 768px) {
-            .modal-content { padding: 20px; margin: 12px; max-height: 90vh; }
-            .modal-header h2 { font-size: 17px; }
-            .form-row { grid-template-columns: 1fr; gap: 10px; }
-            .form-group { margin-bottom: 12px; }
-            .form-group input, .form-group select, .form-group textarea { font-size: 14px; padding: 8px 10px; }
-            .modal-footer { flex-direction: column; gap: 8px; }
-            .btn-submit, .btn-cancel { padding: 10px; }
-        }
-        @media (max-width: 480px) {
-            .modal-content { padding: 16px; border-radius: 18px; }
-            .modal-header h2 { font-size: 16px; }
-            .image-preview { width: 56px; height: 56px; }
-        }
 
         input, select, textarea { font-size: 16px !important; }
     </style>
@@ -292,6 +277,8 @@
                     <option value="2024">2024</option>
                     <option value="2023">2023</option>
                     <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
                 </select>
             </div>
             <div class="filter-group">
@@ -360,27 +347,32 @@
     <script>
         if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        // DATA ALUMNI
+        // ========== DATA ALUMNI ==========
         let alumni = JSON.parse(localStorage.getItem('alumni')) || [
-            {id:1, name:'Dr. Ahmad Fauzi', level:'SMA', year:2005, job:'Dosen', testimoni:'Terima kasih SMA Nusantara Prestasi.', photo:''},
-            {id:2, name:'Siti Nurhaliza', level:'Universitas', year:2022, job:'Analis Keuangan', testimoni:'Kampus yang memberikan bekal ilmu.', photo:''},
-            {id:3, name:'Budi Santoso', level:'SMP', year:2010, job:'Software Engineer', testimoni:'SMP mengajarkan disiplin.', photo:''},
-            {id:4, name:'Dewi Anggraeni', level:'SD', year:2008, job:'Guru SD', testimoni:'SD Nusantara tempat menyenangkan.', photo:''},
-            {id:5, name:'Fathia Zahra', level:'SMA', year:2024, job:'Mahasiswa UI', testimoni:'Bimbingan guru-guru sangat berkesan.', photo:''},
-            {id:6, name:'Rizky Ramadhan', level:'Universitas', year:2023, job:'Full Stack Dev', testimoni:'Skill yang siap pakai di industri.', photo:''},
-            {id:7, name:'Sarah Azzahra', level:'SMA', year:2023, job:'Mahasiswa Kedokteran', testimoni:'Terima kasih guru-guru terbaik.', photo:''},
-            {id:8, name:'M. Iqbal', level:'SMP', year:2018, job:'Pengusaha', testimoni:'Mengajarkan jiwa kepemimpinan.', photo:''},
-            {id:9, name:'Nadia Putri', level:'Universitas', year:2024, job:'Data Scientist', testimoni:'Ilmu statistika sangat bermanfaat.', photo:''},
-            {id:10, name:'Andre Wijaya', level:'SMA', year:2022, job:'UI/UX Designer', testimoni:'Terima kasih atas kreativitasnya.', photo:''},
+            {id:1, name:'Dr. Ahmad Fauzi, M.Pd', level:'SMA', year:2005, job:'Dosen Universitas', testimoni:'Terima kasih SMA Nusantara Prestasi yang telah membentuk karakter dan memberikan bekal ilmu yang bermanfaat.', photo:''},
+            {id:2, name:'Siti Nurhaliza, S.E.', level:'Universitas', year:2022, job:'Analis Keuangan', testimoni:'Kampus yang memberikan bekal ilmu dan pengalaman berharga untuk dunia kerja.', photo:''},
+            {id:3, name:'Budi Santoso, S.Kom', level:'SMP', year:2010, job:'Software Engineer', testimoni:'SMP mengajarkan disiplin dan kerja keras yang menjadi fondasi kesuksesan.', photo:''},
+            {id:4, name:'Dewi Anggraeni, S.Pd', level:'SD', year:2008, job:'Guru SD', testimoni:'SD Nusantara tempat yang menyenangkan dan penuh kenangan indah.', photo:''},
+            {id:5, name:'Fathia Zahra', level:'SMA', year:2024, job:'Mahasiswa UI', testimoni:'Bimbingan dan dukungan dari guru-guru sangat berkesan dan membantu saya meraih mimpi.', photo:''},
+            {id:6, name:'Rizky Ramadhan, S.T.', level:'Universitas', year:2023, job:'Full Stack Developer', testimoni:'Skill yang siap pakai di industri, terima kasih UNIDA.', photo:''},
+            {id:7, name:'Sarah Azzahra', level:'SMA', year:2023, job:'Mahasiswa Kedokteran', testimoni:'Terima kasih guru-guru terbaik yang selalu memberikan motivasi.', photo:''},
+            {id:8, name:'M. Iqbal, S.E.', level:'SMP', year:2018, job:'Pengusaha', testimoni:'Mengajarkan jiwa kepemimpinan dan kewirausahaan sejak dini.', photo:''},
+            {id:9, name:'Nadia Putri, S.Si', level:'Universitas', year:2024, job:'Data Scientist', testimoni:'Ilmu statistika dan pemrograman sangat bermanfaat di dunia kerja.', photo:''},
+            {id:10, name:'Andre Wijaya, S.Ds', level:'SMA', year:2022, job:'UI/UX Designer', testimoni:'Terima kasih atas pengembangan kreativitas yang luar biasa.', photo:''},
+            {id:11, name:'Cynthia Dewi, dr.', level:'SD', year:2015, job:'Dokter', testimoni:'Dasar pendidikan yang kuat dari SD Nusantara Unggul.', photo:''},
+            {id:12, name:'Bayu Saputra, S.H.', level:'SMP', year:2016, job:'Polisi', testimoni:'Membentuk karakter yang baik dan disiplin sejak SMP.', photo:''}
         ];
 
-        function saveToLocalStorage() { localStorage.setItem('alumni', JSON.stringify(alumni)); }
+        function saveToLocalStorage() { 
+            localStorage.setItem('alumni', JSON.stringify(alumni)); 
+        }
 
         function getUnitIcon(l) {
             const map = {TK:'🏫', SD:'📚', SMP:'📖', SMA:'🎓', Universitas:'🏛️'};
             return map[l] || '🎓';
         }
 
+        // ========== STATS ==========
         function updateStats() {
             const total = alumni.length;
             const byLevel = {TK:0, SD:0, SMP:0, SMA:0, Universitas:0};
@@ -407,6 +399,7 @@
             `;
         }
 
+        // ========== IMAGE PREVIEW ==========
         document.getElementById('alumniPhoto').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if(file) {
@@ -419,7 +412,14 @@
             }
         });
 
+        // ========== RENDER ALUMNI ==========
         function renderAlumni() {
+            // Reload data dari localStorage
+            const saved = localStorage.getItem('alumni');
+            if(saved) {
+                alumni = JSON.parse(saved);
+            }
+
             const fl = document.getElementById('filterLevel').value;
             const fy = document.getElementById('filterYear').value;
             const st = document.getElementById('searchInput').value.toLowerCase();
@@ -458,9 +458,12 @@
             updateStats();
         }
 
+        // ========== CRUD ==========
         window.viewAlumni = (id) => {
             const item = alumni.find(a => a.id === id);
-            if(item) alert(`🎓 DETAIL ALUMNI\n\nNama: ${item.name}\nTahun: ${item.year}\nUnit: ${item.level}\nPekerjaan: ${item.job}\n\nTestimoni:\n"${item.testimoni}"`);
+            if(item) {
+                alert(`🎓 DETAIL ALUMNI\n\nNama: ${item.name}\nTahun: ${item.year}\nUnit: ${item.level}\nPekerjaan: ${item.job}\n\nTestimoni:\n"${item.testimoni}"`);
+            }
         };
 
         window.editAlumni = (id) => {
@@ -489,6 +492,7 @@
             }
         };
 
+        // ========== MODAL ==========
         const modal = document.getElementById('alumniModal');
 
         document.getElementById('openModalBtn').onclick = function() {
@@ -516,7 +520,10 @@
             const testimoni = document.getElementById('alumniTestimoni').value;
             const photo = document.getElementById('imagePreview').src;
 
-            if(!name || !job) return alert('⚠️ Nama dan pekerjaan harus diisi!');
+            if(!name || !job) {
+                alert('⚠️ Nama dan pekerjaan harus diisi!');
+                return;
+            }
 
             if(id) {
                 const idx = alumni.findIndex(a => a.id == id);
@@ -530,12 +537,15 @@
             modal.style.display = 'none';
         };
 
+        // ========== EVENT LISTENERS ==========
         document.getElementById('filterLevel').addEventListener('change', renderAlumni);
         document.getElementById('filterYear').addEventListener('change', renderAlumni);
         document.getElementById('searchInput').addEventListener('input', renderAlumni);
+        
+        // ========== INIT ==========
         renderAlumni();
 
-        // NAVIGASI
+        // ========== NAVIGASI ==========
         function getBasePath() {
             return window.location.pathname.includes('/pages/') ? '' : 'pages/';
         }
@@ -576,9 +586,22 @@
             document.getElementById('sidebar').classList.toggle('active');
         };
 
+        // Tutup sidebar saat klik di luar
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (sidebar && toggle) {
+                if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
         window.onclick = function(event) {
             if(event.target === modal) modal.style.display = 'none';
         };
+
+        console.log('✅ Alumni page loaded! Total data:', alumni.length);
     </script>
 </body>
 </html>
