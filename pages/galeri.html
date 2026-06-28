@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Galeri - YP Nusantara Sejahtera</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -106,9 +106,11 @@
             background: #1a2a4f;
             color: white;
             border: none;
-            padding: 12px;
+            padding: 14px 16px;
             border-radius: 12px;
             cursor: pointer;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 1024px) {
@@ -117,10 +119,11 @@
             }
             .sidebar.active {
                 left: 0;
+                box-shadow: 4px 0 30px rgba(0,0,0,0.3);
             }
             .main-content {
                 margin-left: 0;
-                padding: 20px;
+                padding: 16px;
             }
             .menu-toggle {
                 display: block;
@@ -269,11 +272,23 @@
             width: 260px;
         }
 
-        /* Cards Grid */
+        /* Cards Grid - 3 KOLOM */
         .galeri-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 24px;
+        }
+
+        @media (max-width: 1200px) {
+            .galeri-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .galeri-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .galeri-card {
@@ -377,20 +392,22 @@
 
         .galeri-actions {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-top: 12px;
             padding-top: 12px;
             border-top: 1px solid #f1f5f9;
         }
 
         .action-btn {
-            padding: 6px 14px;
+            padding: 6px 12px;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             font-size: 12px;
             font-weight: 500;
             transition: all 0.2s;
+            flex: 1;
+            text-align: center;
         }
 
         .btn-view { background: #e0e7ff; color: #4338ca; }
@@ -587,20 +604,207 @@
             opacity: 0.5;
         }
 
-        @media (max-width: 640px) {
-            .galeri-grid {
-                grid-template-columns: 1fr;
+        /* ================================================================ */
+        /* ========== TAMBAHAN RESPONSIVE UNTUK HP ========== */
+        /* ================================================================ */
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 16px;
+                margin-left: 0;
             }
-            .form-row {
-                grid-template-columns: 1fr;
+            .topbar {
+                padding: 14px 18px;
+                margin-top: 56px;
+            }
+            .page-title h1 {
+                font-size: 20px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .stat-card {
+                padding: 14px 16px;
+            }
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            .stat-info h3 {
+                font-size: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .topbar {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                padding: 14px 16px;
+                margin-top: 56px;
+            }
+            .btn-add {
+                width: 100%;
+                justify-content: center;
+                padding: 12px;
+            }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .stat-card {
+                padding: 12px 14px;
+            }
+            .stat-icon {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
+            .stat-info p {
+                font-size: 10px;
             }
             .filter-section {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 10px;
+                padding: 12px 14px;
             }
+            .filter-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .filter-select,
             .search-input {
-                width: 100%;
+                width: 100% !important;
+                padding: 10px 14px;
+                font-size: 13px;
             }
+            .galeri-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            .galeri-image-container {
+                height: 180px;
+            }
+            .galeri-content {
+                padding: 14px;
+            }
+            .galeri-title {
+                font-size: 15px;
+            }
+            .modal-content {
+                padding: 20px;
+                margin: 12px;
+                max-height: 90vh;
+            }
+            .modal-header h2 {
+                font-size: 17px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            .form-group {
+                margin-bottom: 12px;
+            }
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                font-size: 14px;
+                padding: 10px 12px;
+            }
+            .modal-footer {
+                flex-direction: column;
+                gap: 8px;
+            }
+            .btn-submit,
+            .btn-cancel {
+                padding: 12px;
+            }
+            .action-btn {
+                font-size: 11px;
+                padding: 4px 8px;
+            }
+            .galeri-meta {
+                font-size: 11px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .stat-card {
+                padding: 10px 12px;
+            }
+            .stat-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 12px;
+            }
+            .stat-info h3 {
+                font-size: 16px;
+            }
+            .stat-info p {
+                font-size: 10px;
+            }
+            .page-title h1 {
+                font-size: 18px;
+            }
+            .page-title p {
+                font-size: 12px;
+            }
+            .menu-toggle {
+                top: 12px;
+                left: 12px;
+                padding: 10px 12px;
+                font-size: 16px;
+            }
+            .modal-content {
+                padding: 16px;
+                border-radius: 18px;
+            }
+            .galeri-image-container {
+                height: 160px;
+            }
+            .galeri-title {
+                font-size: 14px;
+            }
+            .lightbox-close {
+                font-size: 30px;
+                top: 10px;
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            .stat-card {
+                padding: 10px 14px;
+            }
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+            }
+            .stat-info h3 {
+                font-size: 18px;
+            }
+            .galeri-image-container {
+                height: 140px;
+            }
+        }
+
+        /* Mencegah zoom otomatis di input pada mobile */
+        input, select, textarea {
+            font-size: 16px !important;
         }
     </style>
 </head>
@@ -759,14 +963,39 @@
     <script>
         if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        let galeri = JSON.parse(localStorage.getItem('galeri')) || [
-            {id:1, title:'Upacara 17 Agustus 2024', unit:'Umum', type:'foto', image:'', videoUrl:'', desc:'Upacara peringatan HUT RI ke-79', date:'2024-08-17'},
-            {id:2, title:'Wisuda Universitas Nusantara Digital', unit:'Universitas', type:'foto', image:'', videoUrl:'', desc:'Wisuda periode Agustus 2024', date:'2024-08-25'},
-            {id:3, title:'Lomba Mewarnai TK Nusantara Ceria', unit:'TK', type:'foto', image:'', videoUrl:'', desc:'Lomba mewarnai antar TK se-Jakarta', date:'2024-07-15'},
-            {id:4, title:'Pentas Seni SMA Nusantara Prestasi', unit:'SMA', type:'video', image:'', videoUrl:'https://www.youtube.com/watch?v=dQw4w9WgXcQ', desc:'Pentas seni tahunan', date:'2024-06-10'},
+        // ========== FUNGSI UNTUK MEMBACA DATA DARI LOCALSTORAGE ==========
+        function getData(key, defaultData) {
+            const data = localStorage.getItem(key);
+            if (data) {
+                try {
+                    return JSON.parse(data);
+                } catch (e) {
+                    return defaultData;
+                }
+            } else {
+                localStorage.setItem(key, JSON.stringify(defaultData));
+                return defaultData;
+            }
+        }
+
+        function saveData(key, data) {
+            localStorage.setItem(key, JSON.stringify(data));
+        }
+
+        // ========== DATA DEFAULT ==========
+        const defaultGaleri = [
+            {id:1, title:'Upacara 17 Agustus 2024', unit:'Umum', id_sekolah:0, type:'foto', image:'', videoUrl:'', desc:'Upacara peringatan HUT RI ke-79', date:'2024-08-17'},
+            {id:2, title:'Wisuda Universitas Nusantara Digital', unit:'Universitas', id_sekolah:5, type:'foto', image:'', videoUrl:'', desc:'Wisuda periode Agustus 2024', date:'2024-08-25'},
+            {id:3, title:'Lomba Mewarnai TK Nusantara Ceria', unit:'TK', id_sekolah:1, type:'foto', image:'', videoUrl:'', desc:'Lomba mewarnai antar TK se-Jakarta', date:'2024-07-15'},
+            {id:4, title:'Pentas Seni SMA Nusantara Prestasi', unit:'SMA', id_sekolah:4, type:'video', image:'', videoUrl:'https://www.youtube.com/watch?v=dQw4w9WgXcQ', desc:'Pentas seni tahunan', date:'2024-06-10'},
         ];
 
-        function saveToLocalStorage() { localStorage.setItem('galeri', JSON.stringify(galeri)); }
+        // ========== LOAD DATA ==========
+        let galeri = getData('galeri', defaultGaleri);
+
+        function saveToLocalStorage() {
+            saveData('galeri', galeri);
+        }
 
         function getUnitIcon(unit) {
             const map = {Umum:'🏛️', TK:'🏫', SD:'📚', SMP:'📖', SMA:'🎓', Universitas:'🏛️'};
@@ -849,6 +1078,9 @@
         }
 
         function renderGaleri() {
+            // ========== RELOAD DATA TERBARU DARI LOCALSTORAGE ==========
+            galeri = getData('galeri', defaultGaleri);
+
             const filterUnit = document.getElementById('filterUnit').value;
             const filterType = document.getElementById('filterType').value;
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
@@ -938,17 +1170,23 @@
             let videoUrl = '';
             if(type === 'foto') {
                 image = document.getElementById('imagePreview').src;
+                if(!image || image.includes('blob:')) return alert('⚠️ Harap upload foto!');
             } else {
                 videoUrl = document.getElementById('videoUrl').value;
                 if(!videoUrl) return alert('⚠️ URL video harus diisi!');
             }
+
+            // Cari id_sekolah dari unit
+            const schools = getData('schools', []);
+            const school = schools.find(s => s.level === unit);
+            const id_sekolah = school ? school.id : (unit === 'Umum' ? 0 : null);
             
             if(id) {
                 const index = galeri.findIndex(g => g.id == id);
-                if(index !== -1) galeri[index] = {id: parseInt(id), title, unit, type, image, videoUrl, desc, date};
+                if(index !== -1) galeri[index] = {id: parseInt(id), title, unit, id_sekolah, type, image, videoUrl, desc, date};
             } else {
                 const newId = Math.max(...galeri.map(g => g.id), 0) + 1;
-                galeri.push({id:newId, title, unit, type, image, videoUrl, desc, date});
+                galeri.push({id:newId, title, unit, id_sekolah, type, image, videoUrl, desc, date});
             }
             saveToLocalStorage();
             renderGaleri();
@@ -956,6 +1194,7 @@
         };
 
         window.editGaleri = (id) => {
+            galeri = getData('galeri', defaultGaleri);
             const item = galeri.find(g => g.id === id);
             if(item) {
                 document.getElementById('modalTitle').innerHTML = '<i class="fas fa-edit"></i> Edit Media';
@@ -993,7 +1232,16 @@
         document.getElementById('searchInput').addEventListener('input', renderGaleri);
         renderGaleri();
 
-        // ==================== NAVIGASI STANDAR ====================
+        // ==================== NAVIGASI ====================
+        function getBasePath() {
+            if (window.location.pathname.includes('/pages/')) {
+                return '';
+            } else {
+                return 'pages/';
+            }
+        }
+        const basePath = getBasePath();
+
         document.querySelectorAll('.nav-item[data-page]').forEach(item => {
             item.addEventListener('click', () => {
                 const page = item.dataset.page;
@@ -1014,7 +1262,9 @@
                     kontak: 'kontak.html',
                     laporan: 'laporan.html'
                 };
-                if(pages[page]) window.location.href = pages[page];
+                if(pages[page]) {
+                    window.location.href = basePath + pages[page];
+                }
             });
         });
 
@@ -1028,6 +1278,14 @@
         document.getElementById('menuToggle').onclick = () => {
             document.getElementById('sidebar').classList.toggle('active');
         };
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
 
         window.onclick = function(event) {
             if (event.target === modal) modal.style.display = 'none';
