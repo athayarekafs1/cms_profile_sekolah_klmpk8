@@ -35,8 +35,8 @@
         .nav-item span { font-size: 14px; font-weight: 500; }
         .menu-toggle {
             display: none; position: fixed; top: 20px; left: 20px; z-index: 1001;
-            background: #1a2a4f; color: white; border: none; padding: 12px; border-radius: 12px; cursor: pointer;
-            font-size: 18px; box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background: #1a2a4f; color: white; border: none; padding: 14px 16px; border-radius: 12px; cursor: pointer; font-size: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 1024px) {
@@ -49,11 +49,11 @@
         .main-content { margin-left: 280px; padding: 24px 32px; transition: all 0.3s; }
 
         .topbar {
-            background: white; border-radius: 20px; padding: 16px 24px; margin-bottom: 24px;
+            background: white; border-radius: 20px; padding: 20px 28px; margin-bottom: 28px;
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
         }
-        .page-title h1 { font-size: 22px; font-weight: 700; color: #1a2a4f; }
+        .page-title h1 { font-size: 24px; font-weight: 700; color: #1a2a4f; }
         .page-title p { font-size: 13px; color: #6c757d; margin-top: 4px; }
 
         .btn-add {
@@ -65,7 +65,7 @@
         .btn-add:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(102,126,234,0.3); }
 
         .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; margin-bottom: 24px;
+            display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px;
         }
         .stat-card {
             background: white; border-radius: 16px; padding: 14px 16px;
@@ -89,12 +89,49 @@
         }
         .search-input { width: 220px; }
 
-        /* ========== ALUMNI GRID ========== */
         .alumni-grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px;
+            display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
         }
-        @media (max-width: 768px) { .alumni-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
-        @media (max-width: 480px) { .alumni-grid { grid-template-columns: 1fr; gap: 14px; } }
+        @media (max-width: 1400px) { .alumni-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 1100px) { .alumni-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 768px) { 
+            .alumni-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .topbar { flex-direction: column; align-items: stretch; gap: 12px; padding: 14px 18px; margin-top: 56px; }
+            .btn-add { width: 100%; justify-content: center; padding: 10px; }
+            .filter-section { flex-direction: column; align-items: stretch; gap: 10px; }
+            .filter-group { flex-direction: column; gap: 8px; }
+            .filter-select, .search-input { width: 100% !important; padding: 8px 12px; }
+            .page-title h1 { font-size: 18px; }
+            .page-title p { font-size: 11px; }
+            .modal-content { padding: 20px; margin: 12px; max-height: 90vh; }
+            .modal-header h2 { font-size: 17px; }
+            .form-row { grid-template-columns: 1fr; gap: 10px; }
+            .modal-footer { flex-direction: column; gap: 8px; }
+            .btn-submit, .btn-cancel { padding: 10px; }
+            .menu-toggle { top: 12px; left: 12px; padding: 10px 12px; font-size: 16px; }
+        }
+        @media (max-width: 480px) { 
+            .alumni-grid { grid-template-columns: 1fr; gap: 14px; }
+            .stats-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+            .stat-card { padding: 10px 12px; }
+            .stat-icon { width: 32px; height: 32px; font-size: 12px; }
+            .stat-info h3 { font-size: 16px; }
+            .stat-info p { font-size: 10px; }
+            .topbar { margin-top: 46px; padding: 10px 14px; }
+            .page-title h1 { font-size: 16px; }
+            .btn-add { padding: 8px; font-size: 12px; }
+            .menu-toggle { top: 12px; left: 12px; padding: 10px 12px; font-size: 16px; }
+            .modal-content { padding: 16px; border-radius: 18px; }
+            .modal-header h2 { font-size: 16px; }
+        }
+        @media (max-width: 360px) { 
+            .alumni-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .menu-toggle { top: 8px; left: 8px; padding: 8px 10px; font-size: 14px; }
+            .topbar { margin-top: 40px; padding: 8px 10px; }
+            .page-title h1 { font-size: 14px; }
+        }
 
         .alumni-card {
             background: white; border-radius: 16px; overflow: hidden;
@@ -105,39 +142,39 @@
 
         .alumni-header {
             position: relative; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 14px 12px 36px 12px; text-align: center;
+            padding: 16px 12px 40px 12px; text-align: center;
         }
         .alumni-avatar {
-            width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+            width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
             margin: 0 auto; border: 3px solid white; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            background: white; display: flex; align-items: center; justify-content: center; font-size: 24px; color: #667eea;
+            background: white; display: flex; align-items: center; justify-content: center; font-size: 28px; color: #667eea;
         }
-        .alumni-name { font-size: 13px; font-weight: 700; margin-top: 8px; color: white; }
+        .alumni-name { font-size: 14px; font-weight: 700; margin-top: 8px; color: white; }
         .alumni-year-badge {
-            position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
-            background: white; padding: 2px 10px; border-radius: 30px; font-size: 9px; font-weight: 600; color: #667eea;
+            position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%);
+            background: white; padding: 3px 10px; border-radius: 30px; font-size: 10px; font-weight: 600; color: #667eea;
         }
 
-        .alumni-body { padding: 12px 10px 10px; flex: 1; display: flex; flex-direction: column; }
+        .alumni-body { padding: 14px 12px 12px; flex: 1; display: flex; flex-direction: column; }
         .alumni-info-item {
-            display: flex; align-items: center; gap: 6px; margin-bottom: 6px; font-size: 10px; color: #475569;
+            display: flex; align-items: center; gap: 8px; margin-bottom: 8px; font-size: 11px; color: #475569;
         }
-        .alumni-info-item i { width: 14px; font-size: 10px; color: #667eea; }
+        .alumni-info-item i { width: 14px; font-size: 11px; color: #667eea; }
         .alumni-level-badge {
-            display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 9px; font-weight: 600;
+            display: inline-block; padding: 2px 8px; border-radius: 20px; font-size: 10px; font-weight: 600;
             background: #e0e7ff; color: #4338ca;
         }
         .alumni-testimoni {
-            background: #f8fafc; padding: 6px 8px; border-radius: 8px; margin: 6px 0;
-            font-size: 10px; color: #475569; line-height: 1.4; font-style: italic;
-            max-height: 40px; overflow: hidden;
+            background: #f8fafc; padding: 8px 10px; border-radius: 10px; margin: 8px 0;
+            font-size: 11px; color: #475569; line-height: 1.4; font-style: italic;
+            max-height: 50px; overflow: hidden;
         }
         .alumni-actions {
-            display: flex; gap: 4px; margin-top: 8px; padding-top: 8px; border-top: 1px solid #f1f5f9;
+            display: flex; gap: 6px; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f1f5f9;
         }
         .action-btn {
-            padding: 4px 6px; border: none; border-radius: 6px; cursor: pointer;
-            font-size: 9px; font-weight: 500; flex: 1; text-align: center;
+            padding: 4px 8px; border: none; border-radius: 6px; cursor: pointer;
+            font-size: 10px; font-weight: 500; flex: 1; text-align: center;
         }
         .btn-view { background: #e0e7ff; color: #4338ca; }
         .btn-edit { background: #fef3c7; color: #92400e; }
@@ -170,7 +207,7 @@
         .form-group textarea { min-height: 80px; resize: vertical; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
         .image-preview {
-            width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+            width: 64px; height: 64px; border-radius: 50%; object-fit: cover;
             margin-top: 8px; border: 2px solid #667eea; display: none;
         }
         .modal-footer { display: flex; gap: 12px; margin-top: 20px; }
@@ -178,264 +215,6 @@
         .btn-cancel { flex: 1; background: #f1f5f9; color: #475569; border: none; padding: 10px; border-radius: 10px; font-weight: 600; cursor: pointer; }
 
         input, select, textarea { font-size: 16px !important; }
-        /* ================================================================ */
-/* ========== KHUSUS TAMPILAN HP ========== */
-/* ================================================================ */
-
-/* HP ukuran sedang (max-width: 768px) */
-@media (max-width: 768px) {
-    /* Grid alumni jadi 2 kolom */
-    .alumni-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px !important;
-    }
-
-    /* Stats grid jadi 2 kolom */
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 8px !important;
-    }
-
-    /* Card lebih kecil */
-    .stat-card {
-        padding: 10px 12px !important;
-    }
-    .stat-icon {
-        width: 32px !important;
-        height: 32px !important;
-        font-size: 12px !important;
-    }
-    .stat-info h3 {
-        font-size: 16px !important;
-    }
-    .stat-info p {
-        font-size: 10px !important;
-    }
-
-    /* Topbar jadi vertikal */
-    .topbar {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        padding: 12px 16px !important;
-        margin-top: 52px !important;
-        gap: 10px !important;
-    }
-    .page-title h1 {
-        font-size: 17px !important;
-    }
-    .page-title p {
-        font-size: 11px !important;
-    }
-    .btn-add {
-        width: 100% !important;
-        justify-content: center !important;
-        padding: 8px !important;
-        font-size: 12px !important;
-    }
-
-    /* Filter jadi vertikal */
-    .filter-section {
-        flex-direction: column !important;
-        align-items: stretch !important;
-        padding: 10px 12px !important;
-        gap: 8px !important;
-    }
-    .filter-group {
-        flex-direction: column !important;
-        gap: 6px !important;
-    }
-    .filter-select, .search-input {
-        width: 100% !important;
-        padding: 8px 10px !important;
-        font-size: 12px !important;
-    }
-
-    /* Alumni Card HP */
-    .alumni-card {
-        border-radius: 12px !important;
-    }
-    .alumni-header {
-        padding: 12px 8px 32px 8px !important;
-    }
-    .alumni-avatar {
-        width: 48px !important;
-        height: 48px !important;
-        font-size: 20px !important;
-    }
-    .alumni-name {
-        font-size: 12px !important;
-    }
-    .alumni-year-badge {
-        font-size: 8px !important;
-        padding: 2px 8px !important;
-        bottom: -8px !important;
-    }
-    .alumni-body {
-        padding: 10px 8px 8px !important;
-    }
-    .alumni-info-item {
-        font-size: 9px !important;
-        gap: 4px !important;
-        margin-bottom: 4px !important;
-    }
-    .alumni-info-item i {
-        font-size: 9px !important;
-        width: 12px !important;
-    }
-    .alumni-level-badge {
-        font-size: 8px !important;
-        padding: 1px 6px !important;
-    }
-    .alumni-testimoni {
-        font-size: 9px !important;
-        padding: 4px 6px !important;
-        max-height: 32px !important;
-        margin: 4px 0 !important;
-    }
-    .alumni-actions {
-        gap: 3px !important;
-        padding-top: 6px !important;
-        margin-top: 6px !important;
-    }
-    .action-btn {
-        font-size: 8px !important;
-        padding: 3px 4px !important;
-        border-radius: 4px !important;
-    }
-
-    /* Modal HP */
-    .modal-content {
-        padding: 16px !important;
-        margin: 10px !important;
-        border-radius: 16px !important;
-        max-height: 90vh !important;
-    }
-    .modal-header h2 {
-        font-size: 16px !important;
-    }
-    .form-row {
-        grid-template-columns: 1fr !important;
-        gap: 8px !important;
-    }
-    .form-group {
-        margin-bottom: 10px !important;
-    }
-    .form-group label {
-        font-size: 11px !important;
-    }
-    .form-group input, .form-group select, .form-group textarea {
-        font-size: 14px !important;
-        padding: 8px 10px !important;
-        border-radius: 8px !important;
-    }
-    .modal-footer {
-        flex-direction: column !important;
-        gap: 6px !important;
-    }
-    .btn-submit, .btn-cancel {
-        padding: 8px !important;
-        font-size: 13px !important;
-        border-radius: 8px !important;
-    }
-
-    /* Tombol menu */
-    .menu-toggle {
-        top: 10px !important;
-        left: 10px !important;
-        padding: 8px 10px !important;
-        font-size: 14px !important;
-        border-radius: 8px !important;
-    }
-}
-
-/* ========== HP KECIL (max-width: 480px) ========== */
-@media (max-width: 480px) {
-    .alumni-grid {
-        grid-template-columns: 1fr !important;
-        gap: 12px !important;
-    }
-    .stats-grid {
-        grid-template-columns: 1fr 1fr !important;
-        gap: 6px !important;
-    }
-    .stat-card {
-        padding: 8px 10px !important;
-    }
-    .stat-icon {
-        width: 28px !important;
-        height: 28px !important;
-        font-size: 10px !important;
-    }
-    .stat-info h3 {
-        font-size: 14px !important;
-    }
-    .stat-info p {
-        font-size: 9px !important;
-    }
-    .topbar {
-        margin-top: 44px !important;
-        padding: 10px 12px !important;
-    }
-    .page-title h1 {
-        font-size: 15px !important;
-    }
-    .page-title p {
-        font-size: 10px !important;
-    }
-    .btn-add {
-        font-size: 11px !important;
-        padding: 6px !important;
-    }
-    .alumni-avatar {
-        width: 52px !important;
-        height: 52px !important;
-        font-size: 22px !important;
-    }
-    .alumni-name {
-        font-size: 13px !important;
-    }
-    .alumni-testimoni {
-        font-size: 10px !important;
-        max-height: 38px !important;
-    }
-    .modal-content {
-        padding: 12px !important;
-    }
-    .menu-toggle {
-        top: 8px !important;
-        left: 8px !important;
-        padding: 6px 8px !important;
-        font-size: 12px !important;
-    }
-}
-
-/* ========== HP SANGAT KECIL (max-width: 360px) ========== */
-@media (max-width: 360px) {
-    .stats-grid {
-        grid-template-columns: 1fr !important;
-    }
-    .topbar {
-        margin-top: 38px !important;
-        padding: 8px 10px !important;
-    }
-    .page-title h1 {
-        font-size: 13px !important;
-    }
-    .alumni-avatar {
-        width: 44px !important;
-        height: 44px !important;
-        font-size: 18px !important;
-    }
-    .alumni-name {
-        font-size: 11px !important;
-    }
-    .menu-toggle {
-        top: 6px !important;
-        left: 6px !important;
-        padding: 5px 7px !important;
-        font-size: 11px !important;
-    }
-}
     </style>
 </head>
 <body>
@@ -561,18 +340,17 @@
     <script>
         if(!localStorage.getItem('isLoggedIn')) window.location.href = '../index.html';
 
-        // DATA ALUMNI
         let alumni = JSON.parse(localStorage.getItem('alumni')) || [
-            {id:1, name:'Dr. Ahmad Fauzi, M.Pd', level:'SMA', year:2005, job:'Dosen Universitas', testimoni:'Terima kasih SMA Nusantara Prestasi.', photo:''},
-            {id:2, name:'Siti Nurhaliza, S.E.', level:'Universitas', year:2022, job:'Analis Keuangan', testimoni:'Kampus yang memberikan bekal ilmu.', photo:''},
-            {id:3, name:'Budi Santoso, S.Kom', level:'SMP', year:2010, job:'Software Engineer', testimoni:'SMP mengajarkan disiplin.', photo:''},
-            {id:4, name:'Dewi Anggraeni, S.Pd', level:'SD', year:2008, job:'Guru SD', testimoni:'SD Nusantara tempat menyenangkan.', photo:''},
+            {id:1, name:'Dr. Ahmad Fauzi, M.Pd', level:'SMA', year:2005, job:'Dosen Universitas', testimoni:'Terima kasih SMA Nusantara Prestasi yang telah membentuk karakter.', photo:''},
+            {id:2, name:'Siti Nurhaliza, S.E.', level:'Universitas', year:2022, job:'Analis Keuangan', testimoni:'Kampus yang memberikan bekal ilmu dan pengalaman berharga.', photo:''},
+            {id:3, name:'Budi Santoso, S.Kom', level:'SMP', year:2010, job:'Software Engineer', testimoni:'SMP mengajarkan disiplin dan kerja keras.', photo:''},
+            {id:4, name:'Dewi Anggraeni, S.Pd', level:'SD', year:2008, job:'Guru SD', testimoni:'SD Nusantara tempat yang menyenangkan.', photo:''},
             {id:5, name:'Fathia Zahra', level:'SMA', year:2024, job:'Mahasiswa UI', testimoni:'Bimbingan guru-guru sangat berkesan.', photo:''},
             {id:6, name:'Rizky Ramadhan, S.T.', level:'Universitas', year:2023, job:'Full Stack Developer', testimoni:'Skill yang siap pakai di industri.', photo:''},
             {id:7, name:'Sarah Azzahra', level:'SMA', year:2023, job:'Mahasiswa Kedokteran', testimoni:'Terima kasih guru-guru terbaik.', photo:''},
             {id:8, name:'M. Iqbal, S.E.', level:'SMP', year:2018, job:'Pengusaha', testimoni:'Mengajarkan jiwa kepemimpinan.', photo:''},
             {id:9, name:'Nadia Putri, S.Si', level:'Universitas', year:2024, job:'Data Scientist', testimoni:'Ilmu statistika sangat bermanfaat.', photo:''},
-            {id:10, name:'Andre Wijaya, S.Ds', level:'SMA', year:2022, job:'UI/UX Designer', testimoni:'Terima kasih atas kreativitasnya.', photo:''}
+            {id:10, name:'Andre Wijaya, S.Ds', level:'SMA', year:2022, job:'UI/UX Designer', testimoni:'Terima kasih atas kreativitasnya.', photo:''},
         ];
 
         function saveToLocalStorage() { localStorage.setItem('alumni', JSON.stringify(alumni)); }
@@ -645,13 +423,21 @@
                             `<img src="${a.photo}" class="alumni-avatar" style="object-fit:cover;">` : 
                             `<div class="alumni-avatar"><i class="fas fa-user-graduate fa-2x"></i></div>`
                         }
-                        <div class="alumni-name">${a.name}</div>
+                        <div class="alumni-name" title="${a.name}">${a.name.length > 20 ? a.name.substring(0, 18) + '...' : a.name}</div>
                         <div class="alumni-year-badge">🎓 ${a.year}</div>
                     </div>
                     <div class="alumni-body">
-                        <div class="alumni-info-item"><i class="fas fa-graduation-cap"></i> <span class="alumni-level-badge">${getUnitIcon(a.level)} ${a.level}</span></div>
-                        <div class="alumni-info-item"><i class="fas fa-briefcase"></i> ${a.job}</div>
-                        <div class="alumni-testimoni">"${a.testimoni}"</div>
+                        <div class="alumni-info-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span class="alumni-level-badge">${getUnitIcon(a.level)} ${a.level}</span>
+                        </div>
+                        <div class="alumni-info-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span title="${a.job}">${a.job.length > 25 ? a.job.substring(0, 22) + '...' : a.job}</span>
+                        </div>
+                        <div class="alumni-testimoni" title="${a.testimoni}">
+                            ${a.testimoni.length > 55 ? a.testimoni.substring(0, 52) + '...' : a.testimoni}
+                        </div>
                         <div class="alumni-actions">
                             <button class="action-btn btn-view" onclick="viewAlumni(${a.id})"><i class="fas fa-eye"></i> Lihat</button>
                             <button class="action-btn btn-edit" onclick="editAlumni(${a.id})"><i class="fas fa-edit"></i> Edit</button>
@@ -663,7 +449,7 @@
             updateStats();
         }
 
-        window.viewAlumni = function(id) {
+        window.viewAlumni = (id) => {
             const item = alumni.find(a => a.id === id);
             if(item) {
                 alert(`🎓 DETAIL ALUMNI\n\nNama: ${item.name}\nTahun: ${item.year}\nUnit: ${item.level}\nPekerjaan: ${item.job}\n\nTestimoni:\n"${item.testimoni}"`);
@@ -782,7 +568,7 @@
         });
 
         document.getElementById('logoutBtn').onclick = function() {
-            if(confirm('Yakin logout?')) {
+            if(confirm('Yakin ingin logout?')) {
                 localStorage.removeItem('isLoggedIn');
                 window.location.href = '../index.html';
             }
@@ -791,6 +577,14 @@
         document.getElementById('menuToggle').onclick = function() {
             document.getElementById('sidebar').classList.toggle('active');
         };
+
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('menuToggle');
+            if (!sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                sidebar.classList.remove('active');
+            }
+        });
 
         window.onclick = function(event) {
             if (event.target === modal) {
